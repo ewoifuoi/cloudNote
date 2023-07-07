@@ -10,9 +10,7 @@
     <!-- 扫描service相关的bean -->
     <context:component-scan base-package="com.hrbeu.cloudnote.service" />
 
-    <!--BookServiceImpl注入到IOC容器中-->
-    <bean id="UserServiceImpl" class="com.hrbeu.cloudnote.service.UserServiceImpl">
-    </bean>
+
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
