@@ -10,199 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc34c78-8fe7-4a34-b192-5fac5ba4d76a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Change_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/activity.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/activity_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_like.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_note.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_notebook.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_rollback.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_like.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_move.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_note.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_notebook.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_rename.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_replay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ico/favico-114-precomposed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ico/favico-144-precomposed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ico/favico-57-precomposed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ico/favico-72-precomposed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ico/favico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ico/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/08f8695d.select2-spinner.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/156cc09f.spritemap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/314be2a9.divider.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/424387e9.sort_asc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/424387e9.sort_asc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/728a75d4.sort_desc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/85509794.jquery.minicolors.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a45183a1.select2x2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a4d7e44b.switch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/acc49d9a.select2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/ca21017c.sort_both.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/ca6a03e3.noise.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/d85fba58.sort_desc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/07cb4eaa.img8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/08f814dd.img12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/0ab5f292.header-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/0c31c9dc.profile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/0c31c9dc.uifaces22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/1166769f.img11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/1a6d8f34.img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/212fa4f2.logo-inverse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/2590d12d.img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/3498f5b6.uifaces16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/3a93212e.uifaces3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/3e4d8287.img3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/4206586f.stilearn-logo-alt-inverse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/48ae2c25.uifaces1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/48f4bb8e.Stilearn-logo-primary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/4c7c0245.img4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/4e4046ef.uifaces15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/4e81cd8d.img6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/598c0714.uifaces7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/6139681b.stilearn-logo3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/637ebb33.stilearn-logo-inverse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/690243f1.uifaces6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/6e33211b.stilearn-logo-alt-default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/738072ec.uifaces13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/75ccb40a.img5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/782e8c3f.stilearn-logo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/7b14b475.img7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/8986f28e.stilearn-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/8af46bf8.uifaces21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/96a1517e.img9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/9c06e6a0.uifaces11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/a0c1c960.uifaces9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/a448a7ef.uifaces10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/b0f7e705.uifaces5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/b7f97507.uifaces4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/c0647842.uifaces17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/ce4e1a92.img10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/e05590e7.stilearn-logo4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/e326dfc8.logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/e7dd5f45.uifaces8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/e8253fc8.uifaces18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/e9cc6303.uifaces20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/e9d19848.uifaces19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/f5a2c818.uifaces14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/f61536ae.uifaces2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/f71e3e28.stilearn-logo-default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/dummy/fb3f89d7.uifaces12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/f5c1e285.spritemap@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/log_in.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/base64.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/cookie_util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/jquery.nicescroll.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/js-prototype.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/run_prettify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/theme-setup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/emotion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/emotion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/bface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/cface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/fface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/jxface2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/neweditor-tab-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/tface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/wface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/emotion/images/yface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/formula/formula.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/formula/formula.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/formula/formula.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/formula/images/formula.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/image/image.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/image/image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/image/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/image/images/upload1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/image/images/upload2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/link/link.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/map/map.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/map/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/video/images/center_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/video/images/left_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/video/images/none_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/video/images/right_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/video/video.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/dialogs/video/video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/addimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/alldeletebtnhoverskin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/alldeletebtnupskin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/deletedisable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/deleteenable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/imglabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/listbackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/localimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/rotateleftdisable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/rotateleftenable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/rotaterightdisable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/rotaterightenable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/en/images/upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn/images/copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn/images/imglabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn/images/localimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn/images/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn/images/upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/lang/zh-cn/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/umeditor.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/ue/umeditor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/aurora.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/bamboo.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/chord.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/circles.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/complete.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/hello.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/input.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/keys.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/note.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/popcorn.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/pulse.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sounds/synth.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/icon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/login_ghost.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/prettify.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/umeditor.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-dao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-service.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -244,7 +74,23 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserServiceImplTest.test">
+    <configuration name="UserServiceImplTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloudNote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.UserServiceImplTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.64" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.64" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="cloudNote:war exploded">
@@ -283,6 +129,11 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceImplTest.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -292,7 +143,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688706396014</updated>
-      <workItem from="1688706397117" duration="1356000" />
+      <workItem from="1688706397117" duration="2261000" />
     </task>
     <servers />
   </component>
