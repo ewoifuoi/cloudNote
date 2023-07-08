@@ -25,6 +25,7 @@ function checkPwdtwo(){
 }
 
 function register(){
+    alert("test");
     var b = true;
     if(!checkPasswordLength()){
         b = false;
@@ -38,11 +39,15 @@ function register(){
         var pwd=$("#regist_password").val();
 
         $.ajax({
-            url:"register.do",
+            url:"/cloudNote_war_exploded/register",
+            method:"post",
             data:{"regist_username":name,"nickname":nicheng,"regist_password":pwd},
             success:function (res){
                 console.log(res.code);
                 alert(res.msg);
+            },
+            error() {
+              alert("failed");
             }
         });
     }
