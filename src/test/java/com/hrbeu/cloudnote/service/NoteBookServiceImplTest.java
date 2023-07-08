@@ -1,5 +1,6 @@
 package com.hrbeu.cloudnote.service;
 
+import com.hrbeu.cloudnote.Utils.NoteUtils;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import junit.framework.TestCase;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +18,8 @@ public class NoteBookServiceImplTest extends TestCase {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
         NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
 
-        System.out.println(service.addNoteBook(new Notebook("52f9b276-38ee-447f-a3aa-0d54e7a736e5","b39894f3-04c8-43b0-a5ba-b4e4ec144536", "2","test","","2014-06-27 15:18:59" )));
+        String name = "一个用于测试的笔记本";
+
+        System.out.println(service.addNoteBook(new Notebook(NoteUtils.getUUID(),"b39894f3-04c8-43b0-a5ba-b4e4ec144536", "2",name,"",NoteUtils.getCurrentTime() )));
     }
 }

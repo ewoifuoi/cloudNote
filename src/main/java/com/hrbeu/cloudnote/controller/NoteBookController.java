@@ -34,11 +34,8 @@ public class NoteBookController {
         nb.setCn_notebook_name(bookname);
         nb.setCn_user_id(uid);
         nb.setCn_notebook_type_id("3");
-        Date d = new Date();
-        System.out.println(d.getTime() +" ==== 当前毫秒数");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 生成一个格式化对象
-        String date = sdf.format(d); //格式化时间
-        nb.setCn_notebook_createtime(date);   //创建时间
+
+        nb.setCn_notebook_createtime(NoteUtils.getCurrentTime());   //创建时间
         boolean b = service.addNoteBook(nb);
         NoteResult nr = new NoteResult(7,"创建笔记本成功,create Notebook success",null);
         return nr;

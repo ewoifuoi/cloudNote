@@ -20,6 +20,29 @@
 
 	<script src="scripts/cookie_util.js" type="text/javascript"></script>
 	<script src="scripts/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		function loadNotebookByUser(){ // 加载笔记本函数
+			var uid = getCookie("userId");
+			$.ajax({
+				url:"/cloudNote_war_exploded/getNotebookByuserid",
+				data:{"uid":uid},
+				type:"get",
+				success:function (res){
+					var dx = res.data;
+					console.log(dx);
+					var lis="";
+					for(var i=0;i<dx.length;i++){
+						var bjname = dx[i].cn_notebook_name;
+						lis+="<li className='online'><a className=''>"+bjname+"</a></li>";
+					}
+					// $("ul[class='contacts-list']").append(lis);
+					$("#notebooklist").empty();
+					$("#notebooklist").append(lis);
+				}
+			});
+		}
+	</script>
 </head>
 <body class="animated fadeIn">
 <header class="header">
@@ -69,7 +92,7 @@
 			<div class="module" data-toggle="niceScroll">
 				<div class="chat-contact">
 					<div class="contact-body">
-						<ul class="contacts-list">
+						<ul class="contacts-list" id="notebooklist">
 							<li class="online">
 								<a  class='checked'>
 									<i class="fa fa-book" title="online" rel="tooltip-bottom">
@@ -77,12 +100,7 @@
 							</li>
 							<li class="online">
 								<a  class=''>
-									默认笔记本3333
-								</a>
-							</li>
-							<li class="online">
-								<a  class=''>
-									我的比价本
+									默认笔记本3333写死的
 								</a>
 							</li>
 
@@ -274,23 +292,37 @@
 		window.location.href="log_in.html";
 	}else{
 		// 如果存在，发送查询Notebook的请求，后台SSM流程
-		$.ajax({
-			url:"getNotebookByuserid",
-			data:{"uid":uid},
-			type:"get",
-			success:function (res){
-				var dx = res.data;
-				console.log(dx);
-				var lis="";
-				for(var i=0;i<dx.length;i++){
-					var bjname = dx[i].cn_notebook_name;
-					lis+="<li className='online'><a className=''>"+bjname+"</a></li>";
-				}
-				$("ul[class='contacts-list']").append(lis);
-			}
+		loadNotebookByUser();//加载笔记本
+	}
+
+	$(document).ready(function () {
+		$("#add_notebook").click(function(){//点击笔记本+号，弹出类似锁屏对话框
+			// window.alert("=======");
+			$(".opacity_bg").css("display","block");
+			$("#can").load("alert/alert_notebook.html");
+		});
+		$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
+			$(".opacity_bg").css("display","none");
+			$("#can").html("");
 		});
 
-	}
+		// 给alert/alert_notebook.html的 class="...  sure"按钮绑定一个click事件
+		$("#can").on("click",".sure",function(){
+			let userid = sessionStorage.getItem("userId");
+			let bookname=$("#input_notebook").val();
+			$.ajax({
+				url:"/cloudNote_war_exploded/addNoteBook",
+				type:"post",
+				data:{"uid":userid,"bookname":bookname},
+				success:function (res){
+					if(res.code==7){
+						alert("创建笔记本成功"+res.msg); //弹出提示框
+						loadNotebookByUser(); // 加载用户对应的笔记本
+					}
+				}
+			});
+		});
+	});
 
 
 	//加载DOM之后处理页面高度
@@ -347,5 +379,7 @@
 	//实例化Ueditor编辑器
 	var um = UM.getEditor('myEditor');
 </script>
+
+
 </body>
 </html>
