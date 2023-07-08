@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface NoteBookService {
     List<Notebook> getAllNotebook();
+    List<Notebook> getUserNotebook(String uid);
+
+    Boolean addNoteBook(Notebook notebook);
 }

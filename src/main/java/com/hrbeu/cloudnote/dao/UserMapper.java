@@ -1,5 +1,6 @@
 package com.hrbeu.cloudnote.dao;
 
+import com.hrbeu.cloudnote.pojo.Notebook;
 import com.hrbeu.cloudnote.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -16,4 +17,6 @@ public interface UserMapper {
 
     @Select("select * from cn_user where cn_user_name=#{name};")
     public List<User> getUserByname(String name);
+
+
 }

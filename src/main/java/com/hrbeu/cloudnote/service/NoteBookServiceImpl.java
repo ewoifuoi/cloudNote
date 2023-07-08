@@ -17,4 +17,14 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.getAllNotebook();
     }
 
+    @Override
+    public List<Notebook> getUserNotebook(String uid) {
+        return mapper.getUserNoteBook(uid);
+    }
+
+    @Override
+    public Boolean addNoteBook(Notebook notebook) {
+        return mapper.addNoteBook(notebook);
+    }
+
 }

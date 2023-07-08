@@ -9,6 +9,18 @@ public class Notebook {
     private String cn_notebook_desc;
     private String cn_notebook_createtime;
 
+    public Notebook() {
+    }
+
+    public Notebook(String cn_notebook_id, String cn_user_id, String cn_notebook_type_id, String cn_notebook_name, String cn_notebook_desc, String cn_notebook_createtime) {
+        this.cn_notebook_id = cn_notebook_id;
+        this.cn_user_id = cn_user_id;
+        this.cn_notebook_type_id = cn_notebook_type_id;
+        this.cn_notebook_name = cn_notebook_name;
+        this.cn_notebook_desc = cn_notebook_desc;
+        this.cn_notebook_createtime = cn_notebook_createtime;
+    }
+
     @Override
     public String toString() {
         return "Notebook{" +

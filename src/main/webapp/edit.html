@@ -275,7 +275,7 @@
 	}else{
 		// 如果存在，发送查询Notebook的请求，后台SSM流程
 		$.ajax({
-			url:"getNotebookByuserid.do",
+			url:"getNotebookByuserid",
 			data:{"uid":uid},
 			type:"get",
 			success:function (res){
