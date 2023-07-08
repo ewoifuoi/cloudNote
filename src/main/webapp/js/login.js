@@ -9,7 +9,13 @@ $(document).ready(function () {
             type:"post",
             success:function (res){
                 alert(res.code +"   ==  "+res.msg);
+                let user = res.data;
                 window.location.href="edit.html";
+                localStorage.setItem("loginstatus","1");
+                sessionStorage.setItem("loginStatus",1);
+                sessionStorage.setItem("userId",user.cn_user_id);
+                addCookie("userId",user.cn_user_id,0.5); // 来自cookie_utils.js
+
             },
             error:function (){
                 console.log("登录失败");

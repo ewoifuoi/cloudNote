@@ -18,9 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 
 @RestController
-
 public class UserController {
-
 
     @Autowired
     private UserService service;
@@ -46,13 +44,14 @@ public class UserController {
     @PostMapping("/login")
     public NoteResult login(String regist_username, String regist_password, HttpSession session){
 
-        System.out.println(regist_username + " " + regist_password);
         User u = service.login(regist_username,regist_password);
+        NoteResult noteResult = new NoteResult(3,"登录成功", u);
         if(u==null){
             return NoteResult.loginFail();
         }else{
             session.setAttribute("user",u);
-            return NoteResult.loginSuccess();
+            return noteResult;
         }
     }
+
 }

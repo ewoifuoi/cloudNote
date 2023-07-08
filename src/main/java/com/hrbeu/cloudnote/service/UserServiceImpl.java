@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean Register(User user) {
         user.setCn_user_id(NoteUtils.getUUID());
-        user.setCn_user_password(NoteUtils.getMD5(user.getCn_user_password()));
         return userMapper.AddUser(user);
     }
 
