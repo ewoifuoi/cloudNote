@@ -4,7 +4,7 @@ $(document).ready(function () {
         let name = $("#count").val();
         let pwd = $("#password").val();
         $.ajax({
-            url:"login.do",
+            url:"/cloudNote_war_exploded/login",
             data:{"regist_username":name,"regist_password":pwd},
             type:"post",
             success:function (res){

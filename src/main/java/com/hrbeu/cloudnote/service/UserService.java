@@ -5,7 +5,9 @@ import com.hrbeu.cloudnote.pojo.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> getAllUsers();
+    public List<User> getAllUsers();
 
-    Boolean Register(User user);
+    public Boolean Register(User user);
+
+    public User login(String uname, String pwd);
 }

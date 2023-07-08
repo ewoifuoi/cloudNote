@@ -26,4 +26,22 @@ public class UserServiceImpl implements UserService {
         user.setCn_user_password(NoteUtils.getMD5(user.getCn_user_password()));
         return userMapper.AddUser(user);
     }
+
+    @Override
+    public User login(String name, String pwd) {
+        User u = null;
+
+        String loginpwd = NoteUtils.getMD5(pwd);
+        List<User> list = userMapper.getUserByname(name);
+
+        System.out.println("根据姓名查询结果数里 = "+list.size());
+        for (User users : list) {
+            System.out.println(users);
+            boolean b = users.getCn_user_password().equals(loginpwd);
+            if(b)
+                u = users;
+        }
+
+        return u;
+    }
 }
