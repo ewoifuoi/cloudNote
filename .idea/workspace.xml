@@ -10,8 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92e0ba64-92eb-4b8c-8c42-0cc83785852f" name="Changes" comment="变基">
+    <list default="true" id="92e0ba64-92eb-4b8c-8c42-0cc83785852f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="948c3128-6508-4b23-a55f-ed7d55d85282" />
@@ -261,11 +270,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
-        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
+        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
