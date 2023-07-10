@@ -18,5 +18,8 @@ public interface UserMapper {
     @Select("select * from cn_user where cn_user_name=#{name};")
     public List<User> getUserByname(String name);
 
+    @Select("Select cn_user_password from cn_user where cn_user_id=#{uid};")
+    public String getUserById(String uid);
+
 
 }

@@ -43,4 +43,13 @@ public class UserServiceImpl implements UserService {
 
         return u;
     }
+    @Override
+    public boolean getPswByuserid(String uid, String last_password){
+        System.out.println("密码为:"+last_password);
+        String pwd = NoteUtils.getMD5(last_password);
+        String pwd_check = userMapper.getUserById(uid);
+        boolean b = pwd.equals(pwd_check);
+        System.out.println("结果为:"+b);
+        return b;
+    }
 }

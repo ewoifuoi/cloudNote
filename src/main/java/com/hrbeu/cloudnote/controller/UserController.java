@@ -2,6 +2,7 @@ package com.hrbeu.cloudnote.controller;
 
 import com.hrbeu.cloudnote.Utils.NoteResult;
 import com.hrbeu.cloudnote.Utils.NoteUtils;
+import com.hrbeu.cloudnote.pojo.Notebook;
 import com.hrbeu.cloudnote.pojo.User;
 import com.hrbeu.cloudnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -43,7 +45,6 @@ public class UserController {
 
     @PostMapping("/login")
     public NoteResult login(String regist_username, String regist_password, HttpSession session){
-
         User u = service.login(regist_username,regist_password);
         NoteResult noteResult = new NoteResult(3,"登录成功", u);
         if(u==null){
@@ -54,6 +55,8 @@ public class UserController {
         }
     }
 
-
-
+    @PostMapping("/getPswByuserid")
+    public boolean getPswByuserid(String uid, String last_password) throws NoSuchAlgorithmException {
+        return service.getPswByuserid(uid, last_password);
+    }
 }

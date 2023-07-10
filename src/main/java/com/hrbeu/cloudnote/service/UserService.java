@@ -10,4 +10,6 @@ public interface UserService {
     public Boolean Register(User user);
 
     public User login(String uname, String pwd);
+
+    public boolean getPswByuserid(String uid, String last_password);
 }

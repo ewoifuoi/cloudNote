@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -10,8 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92e0ba64-92eb-4b8c-8c42-0cc83785852f" name="Changes" comment="">
+    <list default="true" id="add080c1-d7dc-44b2-b7c4-87272d6c1e4d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Change_password.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,9 +111,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.64">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="NoteBookServiceImplTest.testAddNoteBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
@@ -137,6 +139,21 @@
       <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
       <option name="METHOD_NAME" value="testGetAllNotebook" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloudNote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.UserServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,6 +191,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.64" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.64" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <deployment>
         <artifact name="cloudNote:war exploded">
           <settings>
@@ -183,6 +201,8 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="2df02204-3c1f-4ea0-8f40-5d6b0e7e4987" />
+        <option name="HTTP_PORT" value="8086" />
+        <option name="JNDI_PORT" value="1100" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -261,7 +281,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="JUnit.UserServiceImplTest" />
       <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
       <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
       <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
@@ -270,18 +290,18 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceImplTest" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
         <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6dc34c78-8fe7-4a34-b192-5fac5ba4d76a" name="Changes" comment="" />
+      <changelist id="add080c1-d7dc-44b2-b7c4-87272d6c1e4d" name="Changes" comment="" />
       <created>1688706396014</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -290,6 +310,7 @@
       <workItem from="1688810255100" duration="6890000" />
       <workItem from="1688904877547" duration="7361000" />
       <workItem from="1688950264764" duration="2424000" />
+      <workItem from="1688976602897" duration="1755000" />
     </task>
     <servers />
   </component>
