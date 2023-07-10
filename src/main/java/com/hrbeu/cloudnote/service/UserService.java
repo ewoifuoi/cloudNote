@@ -1,0 +1,13 @@
+package com.hrbeu.cloudnote.service;
+
+import com.hrbeu.cloudnote.pojo.User;
+
+import java.util.List;
+
+public interface UserService {
+    public List<User> getAllUsers();
+
+    public Boolean Register(User user);
+
+    public User login(String uname, String pwd);
+}
