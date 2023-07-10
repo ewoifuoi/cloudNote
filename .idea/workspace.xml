@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6228d133-c90f-4af3-9722-f502c2397b5e" name="Changes" comment="变基">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +22,28 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.64">
+}</component>
+  <component name="RunManager" selected="JUnit.NoteBookServiceImplTest.testGetAllNotebook">
+    <configuration name="NoteBookServiceImplTest.testGetAllNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloudNote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
+      <option name="METHOD_NAME" value="testGetAllNotebook" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserServiceImplTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
@@ -132,11 +148,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
       <item itemvalue="JUnit.UserServiceImplTest.test" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.64" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
       </list>
     </recent_temporary>
