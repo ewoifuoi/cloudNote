@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -10,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0810dae2-0f9c-46d0-a77d-9de3eb48a598" name="Changes" comment="--修改--" />
+    <list default="true" id="0810dae2-0f9c-46d0-a77d-9de3eb48a598" name="Changes" comment="--修改--">
+      <change afterPath="$PROJECT_DIR$/.comfig.swp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,6 +110,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.64">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="NoteBookServiceImplTest.testAddNoteBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
@@ -149,22 +156,6 @@
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
       <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.UserServiceImplTest" />
       <option name="METHOD_NAME" value="RegisterTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.UpDatePwd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cloudNote" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
-      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="UpDatePwd" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -277,7 +268,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserServiceImplTest.UpDatePwd" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
       <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
       <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
@@ -286,11 +277,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceImplTest.UpDatePwd" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
-        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
+        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -316,14 +307,7 @@
       <option name="project" value="LOCAL" />
       <updated>1688979378509</updated>
     </task>
-    <task id="LOCAL-00002" summary="--修改--">
-      <created>1688998969386</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1688998969386</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,8 +333,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="删除了abcd====" />
-    <MESSAGE value="--修改--" />
-    <option name="LAST_COMMIT_MESSAGE" value="--修改--" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除了abcd====" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
