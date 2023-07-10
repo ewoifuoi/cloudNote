@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -10,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92e0ba64-92eb-4b8c-8c42-0cc83785852f" name="Changes" comment="">
+    <list default="true" id="92e0ba64-92eb-4b8c-8c42-0cc83785852f" name="Changes" comment="当前唯一可行版本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
@@ -291,6 +290,14 @@
       <workItem from="1688904877547" duration="7361000" />
       <workItem from="1688950264764" duration="2424000" />
     </task>
+    <task id="LOCAL-00001" summary="当前唯一可行版本">
+      <created>1688971932954</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688971932954</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,5 +322,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="当前唯一可行版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="当前唯一可行版本" />
   </component>
 </project>
