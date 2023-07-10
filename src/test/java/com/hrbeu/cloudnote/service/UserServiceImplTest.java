@@ -23,4 +23,11 @@ public class UserServiceImplTest {
         UserServiceImpl service = (UserServiceImpl) context.getBean("UserServiceImpl");
         service.Register(new User("test","jfklew","这是一个测试"));
     }
+
+    @Test
+    public void UpDatePwd(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserServiceImpl service = (UserServiceImpl) context.getBean("UserServiceImpl");
+        service.ChangePassword("f74f5c6e-70a7-45ac-b80a-88d16fe4e155","knight");
+    }
 }

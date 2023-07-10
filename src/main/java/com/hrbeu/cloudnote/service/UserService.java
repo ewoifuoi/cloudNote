@@ -12,4 +12,6 @@ public interface UserService {
     public User login(String uname, String pwd);
 
     public boolean getPswByuserid(String uid, String last_password);
+
+    public boolean ChangePassword(String uid, String new_password);
 }
