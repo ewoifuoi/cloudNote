@@ -31,15 +31,50 @@
 						type:"get",
 						success:function (res){
 							var dx = res.data;
-							console.log(dx);
+							//console.log(dx);
 							var lis="";
 							for(var i=0;i<dx.length;i++){
 								var bjname = dx[i].cn_notebook_name;
-								lis+="<li className='online'><a className=''>"+bjname+"</a></li>";
+								lis+="<li className='online'><a class='' onclick='checkedNotebook(this)' checked='true'>"+bjname+"</a>" +
+										"<input type='hidden' name='notebook_id' value='"+dx[i].cn_notebook_id+"'>" +
+										"</li>";
 							}
 							// $("ul[class='contacts-list']").append(lis);
 							$("#notebooklist").empty();
 							$("#notebooklist").append(lis);
+						}
+					});
+				}
+
+				function checkedNotebook(obj){
+					var x = $("#notebooklist li a");
+					//var x = $(obj).parent().parent().children('a');
+					//alert(x.length);
+					notebookid = $(obj).next().val();
+
+					//$(x).addClass("");
+					$(x).removeClass("checked");
+					$(obj).addClass("checked");
+					// 增加中间部分对应的ID的note
+					loadNoteBybookid();
+				}
+				//刷新note
+				function loadNoteBybookid(){
+					var url="/cloudNote_war_exploded/getNoteList/" + notebookid;
+					//console.log(url);
+					$.ajax({
+						url:url,
+						success:function (res){
+							var d = res.data;
+							var note_list = "";
+							for(var i=0;i<d.length;i++){
+								note_list += "<a  class=''>" +
+										"<i class='fa fa-file-text-o' title='online' rel='tooltip-bottom'></i> " +
+										d[i].cn_note_title+"<button type='button' class='btn btn-default btn-xs btn_position btn_slide_down'><i class='fa fa-chevron-down'></i></button>" +
+										"</a>"
+							}
+							$("#note_list_li").html("");
+							$("#note_list_li").append(note_list);
 						}
 					});
 				}
