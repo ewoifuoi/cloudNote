@@ -59,4 +59,9 @@ public class UserController {
     public boolean getPswByuserid(String uid, String last_password) throws NoSuchAlgorithmException {
         return service.getPswByuserid(uid, last_password);
     }
+
+    @PostMapping("/changePwd")
+    public boolean changePwd(String uid, String new_password){
+        return service.ChangePassword(uid, new_password);
+    }
 }

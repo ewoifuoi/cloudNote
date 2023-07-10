@@ -4,10 +4,8 @@ import com.hrbeu.cloudnote.Utils.NoteUtils;
 import com.hrbeu.cloudnote.dao.UserMapper;
 import com.hrbeu.cloudnote.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import javax.rmi.CORBA.Util;
 import java.util.List;
 
 @Service("UserServiceImpl")
@@ -45,11 +43,17 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public boolean getPswByuserid(String uid, String last_password){
-        System.out.println("密码为:"+last_password);
         String pwd = NoteUtils.getMD5(last_password);
         String pwd_check = userMapper.getUserById(uid);
         boolean b = pwd.equals(pwd_check);
-        System.out.println("结果为:"+b);
         return b;
+    }
+
+    @Override
+    public boolean ChangePassword(String uid, String new_password){
+        String cn_user_password = NoteUtils.getMD5(new_password);
+        System.out.println("id = "+uid+"  密码 = "+cn_user_password);
+        userMapper.UpdatePwd(uid, cn_user_password);
+        return true;
     }
 }
