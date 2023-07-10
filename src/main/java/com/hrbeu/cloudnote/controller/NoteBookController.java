@@ -2,10 +2,12 @@ package com.hrbeu.cloudnote.controller;
 
 import com.hrbeu.cloudnote.Utils.NoteResult;
 import com.hrbeu.cloudnote.Utils.NoteUtils;
+import com.hrbeu.cloudnote.pojo.Note;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import com.hrbeu.cloudnote.service.NoteBookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +40,30 @@ public class NoteBookController {
         nb.setCn_notebook_createtime(NoteUtils.getCurrentTime());   //创建时间
         boolean b = service.addNoteBook(nb);
         NoteResult nr = new NoteResult(7,"创建笔记本成功,create Notebook success",null);
+        return nr;
+    }
+
+    @RequestMapping("/getNoteList/{bookid}")
+    public NoteResult getNotelist(@PathVariable String bookid){
+        List<Note> ln = service.getAllNoteBynotebook(bookid);
+        System.out.println(ln);
+        NoteResult result = new NoteResult(10,"查询笔记",ln);
+        return result;
+    }
+
+    @RequestMapping("/addNote")
+    public NoteResult addNote(String notebookid, String noteName, String userid){
+        String noteid = NoteUtils.getUUID();
+        Note note = new Note();
+        note.setCn_note_id(noteid);
+        note.setCn_notebook_id(notebookid);
+        note.setCn_user_id(userid);
+        note.setCn_note_title(noteName);
+        Date d = new Date();
+        note.setCn_note_create_time(d.getTime());
+        note.setCn_note_last_modify_time(d.getTime());
+        boolean b = service.addNote(note);
+        NoteResult nr = new NoteResult(9,"查询笔记",null);
         return nr;
     }
 }
