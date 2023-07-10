@@ -10,7 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6dc34c78-8fe7-4a34-b192-5fac5ba4d76a" name="Changes" comment="">
+    <list default="true" id="6dc34c78-8fe7-4a34-b192-5fac5ba4d76a" name="Changes" comment="变基">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -276,6 +276,7 @@
       <workItem from="1688904877547" duration="7361000" />
       <workItem from="1688950264764" duration="5128000" />
       <workItem from="1688958417728" duration="34000" />
+      <workItem from="1688959955339" duration="162000" />
     </task>
     <servers />
   </component>
@@ -301,5 +302,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="变基" />
+    <option name="LAST_COMMIT_MESSAGE" value="变基" />
   </component>
 </project>
