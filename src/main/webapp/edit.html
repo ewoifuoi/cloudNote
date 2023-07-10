@@ -1,9 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
-<body>
 
-	<div class="container">
-		<head>
+	<head>
 			<meta charset="utf-8">
 			<title>我的笔记</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,8 +45,9 @@
 				}
 			</script>
 		</head>
-		<body class="animated fadeIn">
-		<header class="header">
+	<body class="animated fadeIn">
+
+		<header style='width: 100%;padding:0;' class="header" >
 			<div class="header-brand">
 				<a data-pjax=".content-body" href="edit.html">
 					<img class="brand-logo" src="images/dummy/8986f28e.stilearn-logo.png" alt="Stilearn Admin Sample Logo">
@@ -79,7 +78,7 @@
 					<a href="activity.html" target='_blank' title="笔记活动">活动</a>
 				</li>
 			</ul>
-		</header>
+		</header >
 		<div class="row" style='padding:0;' id='center'>
 			<!-- alert_background-->
 			<div class="opacity_bg" style='display:none;'></div>
@@ -222,7 +221,7 @@
 			</div>
 			<!-- 参加活动的笔记列表 -->
 			<!-- 编辑笔记 -->
-			<div class="col-sm-7" id='pc_part_3'>
+			<div class="col-sm-7"  id='pc_part_3' style='padding:0;'>
 				<!-- side-right -->
 				<div class="pc_top_third">
 					<div class="row">
@@ -282,7 +281,7 @@
 			</div>
 			<!-- 预览笔记 -->
 		</div>
-		<footer>
+		<footer style='width: 100%;padding:0;' >
 			<p>&copy; 2014 Stilearning</p>
 			<div style='position:absolute;top:5PX;height:30px;right:20px;line-height:26px;border:1px solid #0E7D76;display:none;background:#fff'>
 				<strong style='color:#0E7D76;margin:0 10px;'></strong>
@@ -382,8 +381,6 @@
 			//实例化Ueditor编辑器
 			var um = UM.getEditor('myEditor');
 		</script>
-	</div>
 
-
-</body>
+	</body>
 </html>
