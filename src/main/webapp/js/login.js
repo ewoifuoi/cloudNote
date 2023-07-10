@@ -1,5 +1,7 @@
 $(document).ready(function () {
-
+    let cookies = document.cookie.split("=");
+    console.log(cookies[0]);
+    delCookie(cookies[0]);
     $("#login").click(function () {
         let name = $("#count").val();
         let pwd = $("#password").val();
