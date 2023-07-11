@@ -12,7 +12,13 @@
   <component name="ChangeListManager">
     <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_note.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_note.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hrbeu/cloudnote/service/NoteBookServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hrbeu/cloudnote/service/NoteBookServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,9 +115,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.64">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="NoteBookServiceImplTest.testAddNoteBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
@@ -139,6 +142,22 @@
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
       <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
       <option name="METHOD_NAME" value="testGetAllNotebook" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteBookServiceImplTest.testTestAddNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloudNote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
+      <option name="METHOD_NAME" value="testTestAddNote" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -266,7 +285,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="JUnit.NoteBookServiceImplTest.testTestAddNote" />
       <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
       <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
       <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
@@ -275,11 +294,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testTestAddNote" />
         <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>

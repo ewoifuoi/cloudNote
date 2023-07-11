@@ -376,31 +376,26 @@
 					console.log("id:",id)
 
 					$.ajax({
-						url:'/note/deleteById.do',//请求的url
-						type:'POST', //请求方式，GET或POST
-						data:{ //发送服务器的数据
+						url:'/cloudNote_war_exploded/deleteNote',//请求的url
+						type:'POST',
+						data:{
 							id:id,
 						},
-						dataType:'json',  //返回的数据格式：json/xml/html/script/jsonp/text
-						success:function(data,textStatus,jqXHR){ //statusCode是2xx 或 304时，执行该函数
+						success:function(data){
 							console.log(data)
 							if(data.status == 0){
-								//$(this).parents("li") // 在ajax中的this，与外部的this不是一个对象
 								$li.remove()
-
-								// 弹出确认删除对话框
 								$('.opacity_bg').hide();// 遮罩层
-								// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+
 								$("#can").empty()
 							}
 						},
-						error:function(xhr,textStatus){ //statusCode是 2xx 或 304 以外的值时，执行该函数
-							console.log('错误')
-							console.log(xhr)
-							console.log(textStatus)
+						error:function(){
+							alert("删除笔记失败");
+
 						}
-					})
-				})
+					});
+				});
 
 
 				// 关闭模态框

@@ -2,6 +2,7 @@ package com.hrbeu.cloudnote.dao;
 
 import com.hrbeu.cloudnote.pojo.Note;
 import com.hrbeu.cloudnote.pojo.Notebook;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -33,4 +34,7 @@ public interface NotebookMapper {
             "        ,#{cn_note_title},#{cn_note_create_time},#{cn_note_last_modify_time}\n" +
             "                         )")
     Boolean addNote(Note note);
+
+    @Delete("delete from cn_note where cn_note_id=#{id};")
+    Boolean deleteNote(String id);
 }
