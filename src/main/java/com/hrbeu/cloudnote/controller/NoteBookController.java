@@ -43,7 +43,7 @@ public class NoteBookController {
         return nr;
     }
 
-    @RequestMapping("/getNoteList/{bookid}")
+    @GetMapping("/getNoteList/{bookid}")
     public NoteResult getNotelist(@PathVariable String bookid){
         List<Note> ln = service.getAllNoteBynotebook(bookid);
         System.out.println(ln);
@@ -51,7 +51,7 @@ public class NoteBookController {
         return result;
     }
 
-    @RequestMapping("/addNote")
+    @PostMapping("/addNote")
     public NoteResult addNote(String notebookid, String noteName, String userid){
         String noteid = NoteUtils.getUUID();
         Note note = new Note();
@@ -63,7 +63,8 @@ public class NoteBookController {
         note.setCn_note_create_time(d.getTime());
         note.setCn_note_last_modify_time(d.getTime());
         boolean b = service.addNote(note);
-        NoteResult nr = new NoteResult(9,"查询笔记",null);
+        System.out.println(note);
+        NoteResult nr = new NoteResult(9,"添加笔记成功",null);
         return nr;
     }
 }
