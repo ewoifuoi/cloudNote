@@ -18,66 +18,8 @@
 			<link rel="stylesheet" href="styles/prettify.css"/>
 			<!-- Ueditor编辑器CSS -->
 			<link href="styles/umeditor.min.css" type="text/css" rel="stylesheet">
-
 			<script src="scripts/cookie_util.js" type="text/javascript"></script>
 			<script src="scripts/jquery.min.js" type="text/javascript"></script>
-			<script type="text/javascript">
-
-				// 加载笔记本函数
-				function loadNotebookByUser(){
-					var uid = getCookie("userId");
-					$.ajax({
-						url:"/cloudNote_war_exploded/getNotebookByuserid",
-						data:{"uid":uid},
-						type:"get",
-						success:function (res){
-							var lis="";
-							for(let item of res.data){
-								lis+="<li className='online'><a class='' onclick='checkedNotebook(this)' checked='true'>"+item.cn_notebook_name+"</a>" +
-										"<input type='hidden' name='notebook_id' value='"+item.cn_notebook_id+"'>" +
-										"</li>";
-							}
-							$("#notebooklist").append(lis);
-						},
-						error:function (){
-							alert("无法加载笔记本列表");
-						}
-					});
-				}
-
-				function checkedNotebook(obj){
-					var x = $("#notebooklist li a");
-					//var x = $(obj).parent().parent().children('a');
-					//alert(x.length);
-					notebookid = $(obj).next().val();
-
-					//$(x).addClass("");
-					$(x).removeClass("checked");
-					$(obj).addClass("checked");
-					// 增加中间部分对应的ID的note
-					loadNoteBybookid();
-				}
-				//刷新note
-				function loadNoteBybookid(){
-					var url="/cloudNote_war_exploded/getNoteList/" + notebookid;
-					//console.log(url);
-					$.ajax({
-						url:url,
-						success:function (res){
-							var d = res.data;
-							var note_list = "";
-							for(var i=0;i<d.length;i++){
-								note_list += "<a  class=''>" +
-										"<i class='fa fa-file-text-o' title='online' rel='tooltip-bottom'></i> " +
-										d[i].cn_note_title+"<button type='button' class='btn btn-default btn-xs btn_position btn_slide_down'><i class='fa fa-chevron-down'></i></button>" +
-										"</a>"
-							}
-							$("#note_list_li").html("");
-							$("#note_list_li").append(note_list);
-						}
-					});
-				}
-			</script>
 		</head>
 	<body class="animated fadeIn">
 
@@ -376,7 +318,7 @@
 
 				// 添加笔记事件
 				$("#can").on("click", "#create_note_btn", function () {
-					const notebookId = $("#notebook_ul li .checked").parent().attr("data-id");
+					const notebookId = $("#notebooklist li .checked").parent().attr("data-id");
 					const title = $("#input_note").val();
 
 					if (title === "") {
@@ -427,12 +369,29 @@
 					});
 				});
 
-
-
 			});
 
-
-
+			// 根据用户 id 加载笔记本列表
+			function loadNotebookByUser(){
+				var uid = getCookie("userId");
+				$.ajax({
+					url:"/cloudNote_war_exploded/getNotebookByuserid",
+					data:{"uid":uid},
+					type:"get",
+					success:function (res){
+						var lis="";
+						for(let item of res.data){
+							lis+="<li className='online'><a class='' onclick='checkedNotebook(this)' checked='true'>"+item.cn_notebook_name+"</a>" +
+									"<input type='hidden' name='notebook_id' value='"+item.cn_notebook_id+"'>" +
+									"</li>";
+						}
+						$("#notebooklist").append(lis);
+					},
+					error:function (){
+						alert("无法加载笔记本列表");
+					}
+				});
+			}
 
 			//加载DOM之后处理页面高度
 			function get_dom(e){
