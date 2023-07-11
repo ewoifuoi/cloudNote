@@ -18,67 +18,8 @@
 			<link rel="stylesheet" href="styles/prettify.css"/>
 			<!-- Ueditor编辑器CSS -->
 			<link href="styles/umeditor.min.css" type="text/css" rel="stylesheet">
-
 			<script src="scripts/cookie_util.js" type="text/javascript"></script>
 			<script src="scripts/jquery.min.js" type="text/javascript"></script>
-			<script type="text/javascript">
-
-				function loadNotebookByUser(){ // 加载笔记本函数
-					var uid = getCookie("userId");
-					$.ajax({
-						url:"/cloudNote_war_exploded/getNotebookByuserid",
-						data:{"uid":uid},
-						type:"get",
-						success:function (res){
-							var dx = res.data;
-							//console.log(dx);
-							var lis="";
-							for(var i=0;i<dx.length;i++){
-								var bjname = dx[i].cn_notebook_name;
-								lis+="<li className='online'><a class='' onclick='checkedNotebook(this)' checked='true'>"+bjname+"</a>" +
-										"<input type='hidden' name='notebook_id' value='"+dx[i].cn_notebook_id+"'>" +
-										"</li>";
-							}
-							// $("ul[class='contacts-list']").append(lis);
-							$("#notebooklist").empty();
-							$("#notebooklist").append(lis);
-						}
-					});
-				}
-
-				function checkedNotebook(obj){
-					var x = $("#notebooklist li a");
-					//var x = $(obj).parent().parent().children('a');
-					//alert(x.length);
-					notebookid = $(obj).next().val();
-
-					//$(x).addClass("");
-					$(x).removeClass("checked");
-					$(obj).addClass("checked");
-					// 增加中间部分对应的ID的note
-					loadNoteBybookid();
-				}
-				//刷新note
-				function loadNoteBybookid(){
-					var url="/cloudNote_war_exploded/getNoteList/" + notebookid;
-					//console.log(url);
-					$.ajax({
-						url:url,
-						success:function (res){
-							var d = res.data;
-							var note_list = "";
-							for(var i=0;i<d.length;i++){
-								note_list += "<a  class=''>" +
-										"<i class='fa fa-file-text-o' title='online' rel='tooltip-bottom'></i> " +
-										d[i].cn_note_title+"<button type='button' class='btn btn-default btn-xs btn_position btn_slide_down'><i class='fa fa-chevron-down'></i></button>" +
-										"</a>"
-							}
-							$("#note_list_li").html("");
-							$("#note_list_li").append(note_list);
-						}
-					});
-				}
-			</script>
 		</head>
 	<body class="animated fadeIn">
 
@@ -130,17 +71,6 @@
 						<div class="chat-contact">
 							<div class="contact-body">
 								<ul class="contacts-list" id="notebooklist">
-									<li class="online">
-										<a  class='checked'>
-											<i class="fa fa-book" title="online" rel="tooltip-bottom">
-											</i> 默认笔记本</a>
-									</li>
-									<li class="online">
-										<a  class=''>
-											默认笔记本3333写死的
-										</a>
-									</li>
-
 								</ul>
 							</div>
 						</div>
@@ -163,19 +93,7 @@
 					<div class="module" data-toggle="niceScroll">
 						<div class="chat-contact">
 							<div class="contact-body">
-								<ul class="contacts-list">
-									<li class="online">
-										<a  class='checked'>
-											<i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> 使用Java操作符<button type="button" class="btn btn-default btn-xs btn_position btn_slide_down"><i class="fa fa-chevron-down"></i></button>
-										</a>
-										<div class="note_menu" tabindex='-1'>
-											<dl>
-												<dt><button type="button" class="btn btn-default btn-xs btn_move" title='移动至...'><i class="fa fa-random"></i></button></dt>
-												<dt><button type="button" class="btn btn-default btn-xs btn_share" title='分享'><i class="fa fa-sitemap"></i></button></dt>
-												<dt><button type="button" class="btn btn-default btn-xs btn_delete" title='删除'><i class="fa fa-times"></i></button></dt>
-											</dl>
-										</div>
-									</li>
+								<ul class="contacts-list" id="notelist">
 								</ul>
 							</div>
 						</div>
@@ -323,28 +241,29 @@
 			</div>
 		</footer>
 		<script type="text/javascript">
+
+
 			var uid = getCookie("userId"); //查询客户的cookie，name是userId
-			// window.alert(uid==null);
 			if(uid==null){ // 如果userId不存在，跳转到登录页面
 				window.location.href="log_in.html";
 			}else{
 				// 如果存在，发送查询Notebook的请求，后台SSM流程
 				loadNotebookByUser();//加载笔记本
+				console.log("加载笔记本");
 			}
 
+			// 预加载=============================================
 			$(document).ready(function () {
-				$("#add_notebook").click(function(){//点击笔记本+号，弹出类似锁屏对话框
-					// window.alert("=======");
+
+				// 添加笔记本按钮响应事件
+				$("#add_notebook").click(function(){
 					$(".opacity_bg").css("display","block");
 					$("#can").load("alert/alert_notebook.html");
 				});
-				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
-					$(".opacity_bg").css("display","none");
-					$("#can").html("");
-				});
 
-				// 给alert/alert_notebook.html的 class="...  sure"按钮绑定一个click事件
-				$("#can").on("click",".sure",function(){
+				// 添加笔记本事件
+				$("#can").on("click","#add_notebook_button",function(){
+					alert("test");
 					let userid = sessionStorage.getItem("userId");
 					let bookname=$("#input_notebook").val();
 					$.ajax({
@@ -353,14 +272,144 @@
 						data:{"uid":userid,"bookname":bookname},
 						success:function (res){
 							if(res.code==7){
-								alert("创建笔记本成功"+res.msg); //弹出提示框
+								alert("创建笔记本成功: "+ bookname); //弹出提示框
+								$("#notebooklist").empty();
 								loadNotebookByUser(); // 加载用户对应的笔记本
 							}
+						},
+						error() {
+							alert("创建笔记本失败");
 						}
 					});
 				});
+
+
+				// 笔记本被点击事件(查询笔记本对应笔记列表)
+				$("#notebooklist").on("click","li",function () {
+					$("#notebooklist li a").removeClass("checked");
+					$(this).find("a").addClass("checked");
+
+					var notebookId = $(this).attr("data-id");
+					console.log("notebookId:",notebookId);
+					getNoteList(notebookId);
+				});
+
+				// 添加笔记按钮响应事件
+				$("#add_note").click(function () {
+					// 选择选中记事本的元素
+					const $a = $("#notebooklist li .checked");
+					// 当 .length 属性是0时，表示没有选中记事本；如果是1，表示选中一个记事本
+					if ($a.length == 0) {
+						alert("请先选中记事本！");
+						return;
+					}
+
+					$('.opacity_bg').show(); // 遮罩层
+					// 发送ajax请求，将返回的html代码显示到id是can的标签中
+					$("#can").load("alert/alert_note.html");
+				});
+
+				// 添加笔记事件
+				$("#can").on("click", "#create_note_btn", function () {
+					const notebookId = $("#notebooklist li .checked").parent().attr("data-id");
+					const title = $("#input_note").val();
+					let userid = sessionStorage.getItem("userId");
+					if (title === "") {
+						alert("请输入标题！");
+						return;
+					}
+
+					$.ajax({
+						url: '/cloudNote_war_exploded/addNote', // 请求的url
+						type: 'POST', // 请求方式，GET或POST
+						data: { // 发送服务器的数据String notebookid, String noteName, String userid
+							notebookid: notebookId,
+							noteName: title,
+							userid: userid,
+						},
+						success: function (data) {
+							console.log(data);
+							if (data.status === 0) {
+
+								getNoteList(notebookId);
+							} else {
+								alert(data.msg);
+							}
+						},
+						error: function (xhr, textStatus) { // statusCode是2xx 或 304 以外的值时，执行该函数
+							console.log('错误');
+							console.log(xhr);
+							console.log(textStatus);
+						}
+
+					});
+
+				});
+
+
+				// 关闭模态框
+				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
+					$(".opacity_bg").css("display","none");
+					$("#can").html("");
+				});
 			});
 
+
+			// 根据笔记本 id 查询所有笔记
+			function getNoteList(notebookId) {
+				$.ajax({
+					url:'/cloudNote_war_exploded/getNoteList/'+notebookId,//请求的url
+					type:'get', //请求方式，GET或POST
+					success:function(data){ //statusCode是2xx 或 304时，执行该函数
+						console.log(data);
+
+						$("#notelist").empty();
+
+						for ( let item of data.data){
+							var html = "<li class=\"online\" data-id='"+item.cn_note_id+"'>"
+							html+="<a>"
+							html+="<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> "+item.cn_note_title+"<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
+							html+="</a>"
+							html+="<div class=\"note_menu\" tabindex='-1'>"
+							html+="<dl>"
+							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>"
+							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>"
+							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>"
+							html+="</dl>"
+							html+="</div>"
+							html+="</li>"
+							$("#notelist").append(html);
+						}
+
+
+					},
+					error:function(xhr,textStatus){
+						console.log('错误')
+						console.log(xhr)
+						console.log(textStatus)
+					}
+				});
+			}
+
+			// 根据用户 id 加载笔记本列表
+			function loadNotebookByUser(){
+				var uid = getCookie("userId");
+				$.ajax({
+					url:"/cloudNote_war_exploded/getNotebookByuserid",
+					data:{"uid":uid},
+					type:"get",
+					success:function (res){
+						var lis="";
+						for(let item of res.data){
+							lis+= '<li class="online" data-id="'+item.cn_notebook_id+'"><a><i class="fa fa-book" title="online" rel="tooltip-bottom"></i>'+item.cn_notebook_name+'</a></li>'
+						}
+						$("#notebooklist").append(lis);
+					},
+					error:function (){
+						alert("无法加载笔记本列表");
+					}
+				});
+			}
 
 			//加载DOM之后处理页面高度
 			function get_dom(e){
