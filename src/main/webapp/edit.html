@@ -255,7 +255,7 @@
 			// 预加载=============================================
 			$(document).ready(function () {
 
-				// 添加笔记本
+				// 添加笔记本按钮响应事件
 				$("#add_notebook").click(function(){
 					$(".opacity_bg").css("display","block");
 					$("#can").load("alert/alert_notebook.html");
@@ -284,7 +284,7 @@
 				});
 
 
-				// 给笔记本增加点击事件
+				// 笔记本被点击事件
 				$("#notebooklist").on("click","li",function () {
 					// 设置选中样式
 					//选中id是notebook_ul下面的li标签下面的a标签
@@ -328,10 +328,10 @@
 					})
 				})
 
-				// 添加笔记
+				// 添加笔记按钮响应事件
 				$("#add_note").click(function () {
 					// 选择选中记事本的元素
-					const $a = $("#notebook_ul li .checked");
+					const $a = $("#notebooklist li .checked");
 					// 当 .length 属性是0时，表示没有选中记事本；如果是1，表示选中一个记事本
 					if ($a.length == 0) {
 						alert("请先选中记事本！");
@@ -340,29 +340,28 @@
 
 					$('.opacity_bg').show(); // 遮罩层
 					// 发送ajax请求，将返回的html代码显示到id是can的标签中
-					$("#can").load("/alert/alert_note.html");
+					$("#can").load("alert/alert_note.html");
 				});
 
 				// 添加笔记事件
 				$("#can").on("click", "#create_note_btn", function () {
 					const notebookId = $("#notebooklist li .checked").parent().attr("data-id");
 					const title = $("#input_note").val();
-
+					let userid = sessionStorage.getItem("userId");
 					if (title === "") {
 						alert("请输入标题！");
 						return;
 					}
 
 					$.ajax({
-						url: '/note/create.do', // 请求的url
+						url: '/cloudNote_war_exploded/addNote', // 请求的url
 						type: 'POST', // 请求方式，GET或POST
-						data: { // 发送服务器的数据
-							title: title,
-							userId: user_id,
-							notebookId: notebookId,
+						data: { // 发送服务器的数据String notebookid, String noteName, String userid
+							notebookid: notebookId,
+							noteName: title,
+							userid: userid,
 						},
-						dataType: 'json', // 返回的数据格式：json/xml/html/script/jsonp/text
-						success: function (data, textStatus, jqXHR) { // statusCode是2xx 或 304时，执行该函数
+						success: function (data) {
 							console.log(data);
 							if (data.status === 0) {
 								$('.opacity_bg').hide(); // 隐藏遮罩层
@@ -383,7 +382,7 @@
 										+ "</dl>"
 										+ "</div>"
 										+ "</li>";
-								$("#note_ul").append(html);
+								$("#notelist").append(html);
 							} else {
 								alert(data.msg);
 							}
