@@ -37,7 +37,6 @@
 										"<input type='hidden' name='notebook_id' value='"+item.cn_notebook_id+"'>" +
 										"</li>";
 							}
-							$("#notebooklist").html("");
 							$("#notebooklist").append(lis);
 						},
 						error:function (){
@@ -314,39 +313,48 @@
 		<script type="text/javascript">
 
 
+			var uid = getCookie("userId"); //查询客户的cookie，name是userId
+			if(uid==null){ // 如果userId不存在，跳转到登录页面
+				window.location.href="log_in.html";
+			}else{
+				// 如果存在，发送查询Notebook的请求，后台SSM流程
+				loadNotebookByUser();//加载笔记本
+				console.log("加载笔记本");
+			}
+
 			// 预加载=============================================
 			$(document).ready(function () {
-
-				var uid = getCookie("userId"); //查询客户的cookie，name是userId
-				// window.alert(uid==null);
-				if(uid==null){ // 如果userId不存在，跳转到登录页面
-					window.location.href="log_in.html";
-				}else{
-					// 如果存在，发送查询Notebook的请求，后台SSM流程
-					loadNotebookByUser();//加载笔记本
-					console.log("加载笔记本");
-				}
 
 				// 添加笔记本
 				$("#add_notebook").click(function(){
 					$(".opacity_bg").css("display","block");
 					$("#can").load("alert/alert_notebook.html");
-				});url:"/cloudNote_war_exploded/addNoteBook",
+				});
+
+				// 关闭模态框
+				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
+					$(".opacity_bg").css("display","none");
+					$("#can").html("");
+				});
 
 				// 添加笔记本事件
-				$("#can").on("click",".sure",function(){
+				$("#can").on("click","#add_notebook_button",function(){
+					alert("test");
 					let userid = sessionStorage.getItem("userId");
 					let bookname=$("#input_notebook").val();
 					$.ajax({
+						url:"/cloudNote_war_exploded/addNoteBook",
 						type:"post",
 						data:{"uid":userid,"bookname":bookname},
 						success:function (res){
 							if(res.code==7){
-								$("#notebookList").empty();
-								alert("创建笔记本成功"+res.msg); //弹出提示框
+								alert("创建笔记本成功: "+ bookname); //弹出提示框
+								$("#notebooklist").empty();
 								loadNotebookByUser(); // 加载用户对应的笔记本
-								$(".close").click();
 							}
+						},
+						error() {
+							alert("创建笔记本失败");
 						}
 					});
 				});
@@ -419,11 +427,7 @@
 					});
 				});
 
-				// 关闭模态框
-				$("#can").on("click", ".close, .cancel", function () {
-					$('.opacity_bg').hide();
-					$("#can").empty();
-				});
+
 
 			});
 
