@@ -255,6 +255,7 @@
 			// 预加载=============================================
 			$(document).ready(function () {
 
+				var notebookId = null;
 				// 添加笔记本按钮响应事件
 				$("#add_notebook").click(function(){
 					$(".opacity_bg").css("display","block");
@@ -283,13 +284,12 @@
 					});
 				});
 
-
 				// 笔记本被点击事件(查询笔记本对应笔记列表)
 				$("#notebooklist").on("click","li",function () {
 					$("#notebooklist li a").removeClass("checked");
 					$(this).find("a").addClass("checked");
 
-					var notebookId = $(this).attr("data-id");
+					notebookId = $(this).attr("data-id");
 					console.log("notebookId:",notebookId);
 					getNoteList(notebookId);
 				});
@@ -311,7 +311,7 @@
 
 				// 添加笔记事件
 				$("#can").on("click", "#create_note_btn", function () {
-					const notebookId = $("#notebooklist li .checked").parent().attr("data-id");
+					let notebookId = $("#notebooklist li .checked").parent().attr("data-id");
 					const title = $("#input_note").val();
 					let userid = sessionStorage.getItem("userId");
 					if (title === "") {
@@ -331,10 +331,11 @@
 							console.log(data);
 							if (data.status === 0) {
 
-								getNoteList(notebookId);
+
 							} else {
 								alert(data.msg);
 							}
+							getNoteList(notebookId);
 						},
 						error: function (xhr, textStatus) { // statusCode是2xx 或 304 以外的值时，执行该函数
 							console.log('错误');
@@ -345,7 +346,6 @@
 					});
 
 				});
-
 
 				// 点击笔记后面的按钮，显示相关操作
 				$("#notelist").on("click",".btn_slide_down",function () {
@@ -367,7 +367,6 @@
 					$("#can").load("alert/alert_delete_note.html")
 				})
 
-
 				// 点击删除笔记确认对话框按钮
 				$("#can").on("click","#delete_note_btn",function () {
 
@@ -383,13 +382,13 @@
 							id:id,
 						},
 						success:function(data){
-							console.log(data)
-							if(data.status == 0){
-								$li.remove()
-								$('.opacity_bg').hide();// 遮罩层
+							console.log(data);
 
-								$("#can").empty()
+							if(data.status == 0){
+								$li.remove();
+
 							}
+							getNoteList(notebookId);
 						},
 						error:function(){
 							alert("删除笔记失败");
@@ -398,9 +397,8 @@
 					});
 				});
 
-
 				// 关闭模态框
-				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
+				$("#can").on("click",".close,.cancle,.sure",function(){ // 关闭笔记本弹出锁屏对话框
 					$(".opacity_bg").css("display","none");
 					$("#can").html("");
 				});
@@ -420,30 +418,30 @@
 
 			// 根据笔记本 id 查询所有笔记
 			function getNoteList(notebookId) {
+				$("#notelist").empty();
 				$.ajax({
 					url:'/cloudNote_war_exploded/getNoteList/'+notebookId,//请求的url
 					type:'get', //请求方式，GET或POST
 					success:function(data){ //statusCode是2xx 或 304时，执行该函数
 						console.log(data);
 
-						$("#notelist").empty();
 
+						var lis="";
 						for ( let item of data.data){
-							var html = "<li class=\"online\" data-id='"+item.cn_note_id+"'>"
-							html+="<a>"
-							html+="<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> "+item.cn_note_title+"<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
-							html+="</a>"
-							html+="<div class=\"note_menu\" tabindex='-1'>"
-							html+="<dl>"
-							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>"
-							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>"
-							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>"
-							html+="</dl>"
-							html+="</div>"
-							html+="</li>"
-							$("#notelist").append(html);
+							lis += "<li class=\"online\" data-id='"+item.cn_note_id+"'>";
+							lis+="<a>";
+							lis+="<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> "+item.cn_note_title+"<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
+							lis+="</a>";
+							lis+="<div class=\"note_menu\" tabindex='-1'>";
+							lis+="<dl>";
+							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>";
+							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>";
+							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>";
+							lis+="</dl>";
+							lis+="</div>";
+							lis+="</li>";
 						}
-
+						$("#notelist").append(lis);
 
 					},
 					error:function(xhr,textStatus){

@@ -22,7 +22,8 @@ public class ActivityServiceImplTest {
         BigInteger num1 = new BigInteger("1234567890");
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
         ActivityServiceImpl service = (ActivityServiceImpl) context.getBean("ActivityServiceImpl");
-        service.createActivity(new Activity("测试标题","测试活动简介",num1));
+
+        System.out.println(service.createActivity(new Activity("测试标题","测试活动简介",num1)));
     }
 
     @Test
@@ -33,5 +34,22 @@ public class ActivityServiceImplTest {
         Note note = new Note(NoteUtils.getUUID(), "8b13a2b4-8ee9-4aaf-8041-68fb6d068027", "b39894f3-04c8-43b0-a5ba-b4e4ec144536", "测试笔记", new Date().getTime(),new Date().getTime());
         Activity activity = new Activity("测试标题","测试活动简介",num1);
         service.addNote_Activity(note, activity);
+    }
+
+    @Test
+    public void testTestGetAllActivities() {
+        BigInteger num1 = new BigInteger("1234567890");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        ActivityServiceImpl service = (ActivityServiceImpl) context.getBean("ActivityServiceImpl");
+
+
+        System.out.println(service.getAllActivities());
+
+    }
+
+    public void testTestCreateActivity() {
+    }
+
+    public void testTestAddNote_Activity() {
     }
 }

@@ -10,10 +10,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="merged">
+    <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hrbeu/cloudnote/service/ActivityServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hrbeu/cloudnote/service/ActivityServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,9 +77,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;80ccc5678bd7229f241a7e7b2a1259e1&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -110,7 +110,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.64">
-    <configuration name="NoteBookServiceImplTest.testAddNoteBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
         <pattern>
@@ -119,14 +119,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
-      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
-      <option name="METHOD_NAME" value="testAddNoteBook" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.ActivityServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActivityServiceImplTest.createActivity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloudNote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.ActivityServiceImplTest" />
+      <option name="METHOD_NAME" value="createActivity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoteBookServiceImplTest.testGetAllNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityServiceImplTest.getAllActivities" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
         <pattern>
@@ -135,14 +150,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
-      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
-      <option name="METHOD_NAME" value="testGetAllNotebook" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.ActivityServiceImplTest" />
+      <option name="METHOD_NAME" value="getAllActivities" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoteBookServiceImplTest.testTestAddNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityServiceImplTest.testTestGetAllActivities" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
         <pattern>
@@ -151,24 +166,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
-      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
-      <option name="METHOD_NAME" value="testTestAddNote" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cloudNote" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
-      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="RegisterTest" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.ActivityServiceImplTest" />
+      <option name="METHOD_NAME" value="testTestGetAllActivities" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -280,20 +279,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.NoteBookServiceImplTest.testTestAddNote" />
-      <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
-      <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
-      <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
+      <item itemvalue="JUnit.ActivityServiceImplTest" />
+      <item itemvalue="JUnit.ActivityServiceImplTest.createActivity" />
+      <item itemvalue="JUnit.ActivityServiceImplTest.getAllActivities" />
+      <item itemvalue="JUnit.ActivityServiceImplTest.testTestGetAllActivities" />
       <item itemvalue="JUnit.UserServiceImplTest.test" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.64" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActivityServiceImplTest.createActivity" />
+        <item itemvalue="JUnit.ActivityServiceImplTest" />
+        <item itemvalue="JUnit.ActivityServiceImplTest.getAllActivities" />
+        <item itemvalue="JUnit.ActivityServiceImplTest.testTestGetAllActivities" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testTestAddNote" />
-        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
       </list>
     </recent_temporary>
   </component>
@@ -312,6 +311,7 @@
       <workItem from="1688976602897" duration="1755000" />
       <workItem from="1688992207032" duration="6071000" />
       <workItem from="1689036757651" duration="1570000" />
+      <workItem from="1689070755295" duration="6202000" />
     </task>
     <task id="LOCAL-00001" summary="删除了abcd====">
       <created>1688979378509</created>
