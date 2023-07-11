@@ -63,8 +63,13 @@
 			<div class="col-xs-2" style='padding:0;' id='pc_part_1'>
 				<!-- side-right -->
 				<div class="pc_top_first">
-					<h3>全部笔记本</h3>
-					<button type="button" class="btn btn-default btn-xs btn_plus" id='add_notebook'><i class="fa fa-plus"></i></button>
+					<div class="row clear_margin">
+						<h3 class="col-xs-9">全部笔记本</h3>
+						<div class="row ">
+							<button style="margin: 0px 3px 1px 0px;" type="button" class="btn btn-default btn_plus" ><i class="fa fa-minus"></i></button>
+							<button style="margin: 3px 0px 3px 6px;" type="button" class="btn btn-default btn_plus" id='add_notebook'><i class="fa fa-plus"></i></button>
+						</div>
+					</div>
 				</div>
 				<aside class="side-right" id='first_side_right'>
 					<div class="module" data-toggle="niceScroll">
@@ -110,9 +115,7 @@
 					<div class="module" data-toggle="niceScroll">
 						<div class="chat-contact">
 							<div class="contact-body">
-								<ul class="contacts-list" id="recyclelist">
-									<li class="disable"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> 虚假回收站笔记<button type="button" class="btn btn-default btn-xs btn_position btn_delete"><i class="fa fa-times"></i></button><button type="button" class="btn btn-default btn-xs btn_position_2 btn_replay"><i class="fa fa-reply"></i></button></a></li>
-								</ul>
+								<ul class="contacts-list" id="recyclelist"></ul>
 							</div>
 						</div>
 					</div>
@@ -395,7 +398,6 @@
 						},
 						error:function(){
 							alert("删除笔记失败");
-
 						}
 					});
 				});
@@ -426,6 +428,7 @@
 						$("#pc_part_4").css("display","block"); //展示回收站模块
 						$("#pc_part_2").css("display","none");  //隐藏笔记列表
 						$("#rollback_button").css("background","#8d5e5b");
+						loadRecycledList();
 						dustbinf = 1;
 					}
 					else {
@@ -584,14 +587,15 @@
 
 			function loadRecycledList() {
 				var uid = getCookie("userId");
+				$("#recyclelist").empty();
 				$.ajax({
 					url:"/cloudNote_war_exploded/getRecycledNotes",
 					data:{"uid":uid},
-					type:"get",
+					type:"post",
 					success:function (res){
 						var lis="";
 						for(let item of res.data){
-							lis += "<li class=\"disable\"><a ><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>";
+							lis += "<li class=\"disable\"><a><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>";
 							lis += item.cn_note_title;
 							lis += "<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_delete\"><i class=\"fa fa-times\"></i></button><button type=\"button\" class=\"btn btn-default btn-xs btn_position_2 btn_replay\"><i class=\"fa fa-reply\"></i></button></a></li>";
 						}
