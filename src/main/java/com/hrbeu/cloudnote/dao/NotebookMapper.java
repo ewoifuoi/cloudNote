@@ -5,6 +5,7 @@ import com.hrbeu.cloudnote.pojo.Notebook;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface NotebookMapper {
     public Boolean addNoteBook(Notebook notebook);
 
 
-    @Select("select * from cn_note where cn_notebook_id=#{bookid};")
+    @Select("select * from cn_note where cn_notebook_id=#{bookid} and cn_note_status_id is null;")
     List<Note> getAllNoteBynotebook(String bookid);
 
     @Insert("insert into cn_note(\n" +
@@ -37,4 +38,7 @@ public interface NotebookMapper {
 
     @Delete("delete from cn_note where cn_note_id=#{id};")
     Boolean deleteNote(String id);
+
+    @Update("update cn_note set cn_note_status_id = 'recycled' where cn_note_id=#{id};")
+    Boolean recycleNote(String id);
 }

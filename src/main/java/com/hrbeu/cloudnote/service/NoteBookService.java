@@ -16,4 +16,6 @@ public interface NoteBookService {
     Boolean addNote(Note note);
 
     Boolean deleteNote(String id);
+
+    Boolean recycleNote(String id);
 }
