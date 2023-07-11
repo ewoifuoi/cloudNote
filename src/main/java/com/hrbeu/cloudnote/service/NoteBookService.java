@@ -16,4 +16,6 @@ public interface NoteBookService {
     Boolean addNote(Note note);
 
     List<Note> getNoteById(String noteid);
+
+    Boolean save_note(String note_id, String note_title, String note_body);
 }

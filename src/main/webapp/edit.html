@@ -290,6 +290,7 @@
 					$(this).find("a").addClass("checked");
 
 					var notebookId = $(this).attr("data-id");
+					currentNoteBookId = notebookId;
 					console.log("notebookId:",notebookId);
 					getNoteList(notebookId);
 				});
@@ -358,10 +359,34 @@
 					$(this).find("a").addClass("checked");
 
 					var noteId = $(this).attr("data-id");
+					currentNoteId = noteId;
 					console.log("noteId:",noteId);
 					getNote(noteId);
 				})
 
+				// 笔记保存按钮点击事件
+				$("#save_note").click(function (){
+					var inputTitle = document.getElementById('input_note_title');
+					var title = inputTitle.value;
+					var content = um.getContent();
+					console.log(title);
+					console.log(content);
+					$.ajax({
+						url:'/cloudNote_war_exploded/save_note/',//请求的url
+						data:{
+							noteId:currentNoteId,
+							note_title:title,
+							note_body:content
+						},
+						type:'get', //请求方式，GET或POST
+						success:function(res){
+							// 将笔记显示到ui里
+							console.log(res);
+							getNoteList(currentNoteId);
+						},
+						error:function(){console.log('错误！！');}
+					})
+				})
 			});
 
 
@@ -408,8 +433,20 @@
 					type:'get', //请求方式，GET或POST
 					success:function(res){
 						// 将笔记显示到ui里
-						console.log(res);
-						var title = res.data;
+						console.log(res.data);
+						for(let item of res.data){
+							console.log(item.cn_note_title);
+							console.log(item.cn_note_body);
+							var inputTitle = document.getElementById('input_note_title');
+							inputTitle.value = item.cn_note_title;
+							um.ready(function () {
+								um.setContent("");
+								if(item.cn_note_body) {
+									um.setContent(item.cn_note_body);
+								}
+							});
+						}
+
 					},
 					error:function(){console.log('错误！！');}
 				})
@@ -488,6 +525,10 @@
 			}
 			//实例化Ueditor编辑器
 			var um = UM.getEditor('myEditor');
+
+			//创建一个全局变量存储当前的笔记ID（悲...）
+			var currentNoteId='';
+			var currentNoteBookId='';
 		</script>
 
 	</body>

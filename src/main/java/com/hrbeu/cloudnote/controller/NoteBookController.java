@@ -57,6 +57,12 @@ public class NoteBookController {
         return result;
     }
 
+    @GetMapping("/save_note")
+    public Boolean save_note(String noteId,String note_title,String note_body){
+        Boolean b = service.save_note(noteId,note_title,note_body);
+        return b;
+    }
+
     @PostMapping("/addNote")
     public NoteResult addNote(String notebookid, String noteName, String userid){
         String noteid = NoteUtils.getUUID();

@@ -5,6 +5,7 @@ import com.hrbeu.cloudnote.pojo.Note;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import junit.framework.TestCase;
 import lombok.Data;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -47,5 +48,13 @@ public class NoteBookServiceImplTest extends TestCase {
         NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
         List<Note> list = service.getNoteById("0889368d-76af-49f5-b26f-cc17a00b84ad");
         System.out.println(list);
+    }
+
+
+    public void testSave_note() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+        Boolean b = service.save_note("0ca3e5e1-af32-4d0c-8014-fce69f59ff05","离谱啊哦","确实");
+        System.out.println(b);
     }
 }

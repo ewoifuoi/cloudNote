@@ -3,7 +3,9 @@ package com.hrbeu.cloudnote.dao;
 import com.hrbeu.cloudnote.pojo.Note;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -36,4 +38,7 @@ public interface NotebookMapper {
 
     @Select("select * from cn_note where cn_note_id=#{noteid};")
     List<Note> getNoteById(String noteid);
+
+    @Update("update cn_note set cn_note_title=#{note_title},cn_note_body=#{note_body} where cn_note_id=#{note_id};")
+    Boolean saveNote(@Param("note_id") String note_id, @Param("note_title") String note_title, @Param("note_body") String note_body);
 }
