@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -9,9 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fae76268-fe07-429f-892f-ec5b1ea68c47" name="Changes" comment="--update--">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c5bdb870-b2d4-4472-8360-a761140ca0c8" name="Changes" comment="--update--" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,6 +340,11 @@
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+        <entry key="eb3ff730-f401-4c93-b1f9-bc08f3c27fed">
+          <value>
+            <State />
           </value>
         </entry>
       </map>
