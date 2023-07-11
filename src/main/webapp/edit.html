@@ -359,7 +359,7 @@
 
 					var noteId = $(this).attr("data-id");
 					console.log("noteId:",noteId);
-					//getNoteList(noteId);
+					getNote(noteId);
 				})
 
 			});
@@ -406,10 +406,12 @@
 				$.ajax({
 					url:'/cloudNote_war_exploded/getNote/'+noteId,//请求的url
 					type:'get', //请求方式，GET或POST
-					success:function(){
+					success:function(res){
 						// 将笔记显示到ui里
-					}
-					error:function(){console.log('错误！！')}
+						console.log(res);
+						var title = res.data;
+					},
+					error:function(){console.log('错误！！');}
 				})
 			}
 

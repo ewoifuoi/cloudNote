@@ -38,4 +38,7 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.addNote(note);
     }
 
+    @Override
+    public  List<Note> getNoteById(String noteid){return mapper.getNoteById(noteid);}
+
 }

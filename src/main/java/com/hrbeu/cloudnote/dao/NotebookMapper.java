@@ -33,4 +33,7 @@ public interface NotebookMapper {
             "        ,#{cn_note_title},#{cn_note_create_time},#{cn_note_last_modify_time}\n" +
             "                         )")
     Boolean addNote(Note note);
+
+    @Select("select * from cn_note where cn_note_id=#{noteid};")
+    List<Note> getNoteById(String noteid);
 }

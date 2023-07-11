@@ -48,6 +48,15 @@ public class NoteBookController {
         return result;
     }
 
+    @GetMapping("/getNote/{noteid}")
+    public NoteResult getNote(@PathVariable String noteid){
+        System.out.println(noteid);
+        List<Note> list = service.getNoteById(noteid);
+        NoteResult result = new NoteResult(10,"查询笔记",list);
+        System.out.println(result);
+        return result;
+    }
+
     @PostMapping("/addNote")
     public NoteResult addNote(String notebookid, String noteName, String userid){
         String noteid = NoteUtils.getUUID();

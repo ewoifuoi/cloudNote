@@ -14,4 +14,6 @@ public interface NoteBookService {
     List<Note> getAllNoteBynotebook(String bookid);
 
     Boolean addNote(Note note);
+
+    List<Note> getNoteById(String noteid);
 }
