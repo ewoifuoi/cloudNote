@@ -346,6 +346,59 @@
 
 				});
 
+
+				// 点击笔记后面的按钮，显示相关操作
+				$("#notelist").on("click",".btn_slide_down",function () {
+					// $(this).parent().parent().find(".note_menu").show()
+					$(this).parents("li").find(".note_menu").slideDown() //有动画效果的伸展菜单
+				})
+
+				// 鼠标移出笔记相关操作区域，就隐藏
+				$("#notelist").on("mouseleave",".note_menu",function () {
+					// $(this).hide()
+					$(this).slideUp()  //有动画效果的收回菜单
+				})
+
+				// 点击删除笔记按钮
+				$("#notelist").on("click",".btn_delete",function () {
+					// 弹出确认删除对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_delete_note.html")
+				})
+
+
+				// 点击删除笔记确认对话框按钮
+				$("#can").on("click","#delete_note_btn",function () {
+
+					// 查找祖先元素，并且是 li 标签的祖先
+					const $li = $("#notelist li .checked").parents("li")
+					const id = $li.attr("data-id")
+					console.log("id:",id)
+
+					$.ajax({
+						url:'/cloudNote_war_exploded/deleteNote',//请求的url
+						type:'POST',
+						data:{
+							id:id,
+						},
+						success:function(data){
+							console.log(data)
+							if(data.status == 0){
+								$li.remove()
+								$('.opacity_bg').hide();// 遮罩层
+
+								$("#can").empty()
+							}
+						},
+						error:function(){
+							alert("删除笔记失败");
+
+						}
+					});
+				});
+
+
 				// 关闭模态框
 				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
 					$(".opacity_bg").css("display","none");

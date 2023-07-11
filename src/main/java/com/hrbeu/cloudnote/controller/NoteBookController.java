@@ -64,4 +64,14 @@ public class NoteBookController {
         NoteResult nr = new NoteResult(9,"添加笔记成功",null);
         return nr;
     }
+
+    @PostMapping("/deleteNote")
+    public NoteResult deleteNote(String id) {
+
+        service.deleteNote(id);
+
+
+        NoteResult result = new NoteResult();
+        return result;
+    }
 }
