@@ -10,11 +10,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--修改--">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_7_10_23_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_7_10_23_01__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_7_10_23_01__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_7_10_23_01__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +181,6 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.64" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.64" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <deployment>
         <artifact name="cloudNote:war exploded">
           <settings>
