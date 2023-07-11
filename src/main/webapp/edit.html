@@ -273,12 +273,6 @@
 					$("#can").load("alert/alert_notebook.html");
 				});
 
-				// 关闭模态框
-				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
-					$(".opacity_bg").css("display","none");
-					$("#can").html("");
-				});
-
 				// 添加笔记本事件
 				$("#can").on("click","#add_notebook_button",function(){
 					alert("test");
@@ -300,6 +294,56 @@
 						}
 					});
 				});
+
+
+				// 给笔记本增加点击事件
+				$("#notebooklist").on("click","li",function () {
+					// 设置选中样式
+					//选中id是notebook_ul下面的li标签下面的a标签
+					$("#notebooklist li a").removeClass("checked")
+					$(this).find("a").addClass("checked")
+					// 获取 data-id 的属性值
+					var notebookId = $(this).attr("data-id")
+					console.log("notebookId:",notebookId)
+
+					$.ajax({
+						url:'/getNoteList/',//请求的url
+						type:'POST', //请求方式，GET或POST
+						data:{ //发送服务器的数据
+							userId:user_id,
+							notebookId:notebookId
+						},
+						dataType:'json',  //返回的数据格式：json/xml/html/script/jsonp/text
+						success:function(data,textStatus,jqXHR){ //statusCode是2xx 或 304时，执行该函数
+							console.log(data)
+							//先清空原有的数据
+							$("#note_ul").empty()
+							//遍历数据，动态加载数据
+							for ( let item of data.data){
+								var html = "<li class=\"online\" data-id='"+item.cnNoteId+"'>"
+								html+="<a>"
+								html+="<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> "+item.cnNoteTitle+"<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
+								html+="</a>"
+								html+="<div class=\"note_menu\" tabindex='-1'>"
+								html+="<dl>"
+								html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>"
+								html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>"
+								html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>"
+								html+="</dl>"
+								html+="</div>"
+								html+="</li>"
+								$("#note_ul").append(html)
+							}
+
+
+						},
+						error:function(xhr,textStatus){ //statusCode是 2xx 或 304 以外的值时，执行该函数
+							console.log('错误')
+							console.log(xhr)
+							console.log(textStatus)
+						}
+					})
+				})
 
 				// 添加笔记
 				$("#add_note").click(function () {
@@ -369,6 +413,12 @@
 					});
 				});
 
+
+				// 关闭模态框
+				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
+					$(".opacity_bg").css("display","none");
+					$("#can").html("");
+				});
 			});
 
 			// 根据用户 id 加载笔记本列表
@@ -381,9 +431,7 @@
 					success:function (res){
 						var lis="";
 						for(let item of res.data){
-							lis+="<li className='online'><a class='' onclick='checkedNotebook(this)' checked='true'>"+item.cn_notebook_name+"</a>" +
-									"<input type='hidden' name='notebook_id' value='"+item.cn_notebook_id+"'>" +
-									"</li>";
+							lis+= '<li class="online" data-id="'+item.cn_notebook_id+'"><a><i class="fa fa-book" title="online" rel="tooltip-bottom"></i>'+item.cn_notebook_name+'</a></li>'
 						}
 						$("#notebooklist").append(lis);
 					},
