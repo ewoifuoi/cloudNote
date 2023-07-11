@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -9,11 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0810dae2-0f9c-46d0-a77d-9de3eb48a598" name="Changes" comment="--修改--">
-      <change afterPath="$PROJECT_DIR$/.comfig.swp" afterDir="false" />
+    <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,9 +278,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
-        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
         <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
@@ -288,7 +289,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="add080c1-d7dc-44b2-b7c4-87272d6c1e4d" name="Changes" comment="" />
+      <changelist id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--" />
       <created>1688706396014</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -299,6 +300,7 @@
       <workItem from="1688950264764" duration="2424000" />
       <workItem from="1688976602897" duration="1755000" />
       <workItem from="1688992207032" duration="6071000" />
+      <workItem from="1689036757651" duration="1570000" />
     </task>
     <task id="LOCAL-00001" summary="删除了abcd====">
       <created>1688979378509</created>
