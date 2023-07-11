@@ -492,9 +492,7 @@
 						},
 						type:'get', //请求方式，GET或POST
 						success:function(res){
-							// 将笔记显示到ui里
 							console.log(res);
-							getNoteList(currentNoteId);
 						},
 						error:function(){console.log('错误！！');}
 					})
@@ -561,8 +559,6 @@
 
 					},
 					error:function(){console.log('错误！！');}
-					},
-					error:function(){console.log('错误！！')}
 				})
 			}
 
