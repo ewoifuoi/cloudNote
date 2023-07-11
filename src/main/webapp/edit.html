@@ -284,49 +284,15 @@
 				});
 
 
-				// 笔记本被点击事件
+				// 笔记本被点击事件(查询笔记本对应笔记列表)
 				$("#notebooklist").on("click","li",function () {
-					// 设置选中样式
-					//选中id是notebook_ul下面的li标签下面的a标签
-					$("#notebooklist li a").removeClass("checked")
-					$(this).find("a").addClass("checked")
-					// 获取 data-id 的属性值
-					var notebookId = $(this).attr("data-id")
-					console.log("notebookId:",notebookId)
+					$("#notebooklist li a").removeClass("checked");
+					$(this).find("a").addClass("checked");
 
-					$.ajax({
-						url:'/cloudNote_war_exploded/getNoteList/'+notebookId,//请求的url
-						type:'get', //请求方式，GET或POST
-						success:function(data){ //statusCode是2xx 或 304时，执行该函数
-							console.log(data)
-							//先清空原有的数据
-							$("#notelist").empty()
-							//遍历数据，动态加载数据
-							for ( let item of data.data){
-								var html = "<li class=\"online\" data-id='"+item.cnNoteId+"'>"
-								html+="<a>"
-								html+="<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> "+item.cnNoteTitle+"<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
-								html+="</a>"
-								html+="<div class=\"note_menu\" tabindex='-1'>"
-								html+="<dl>"
-								html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>"
-								html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>"
-								html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>"
-								html+="</dl>"
-								html+="</div>"
-								html+="</li>"
-								$("#notelist").append(html)
-							}
-
-
-						},
-						error:function(xhr,textStatus){ //statusCode是 2xx 或 304 以外的值时，执行该函数
-							console.log('错误')
-							console.log(xhr)
-							console.log(textStatus)
-						}
-					})
-				})
+					var notebookId = $(this).attr("data-id");
+					console.log("notebookId:",notebookId);
+					getNoteList(notebookId);
+				});
 
 				// 添加笔记按钮响应事件
 				$("#add_note").click(function () {
@@ -364,25 +330,8 @@
 						success: function (data) {
 							console.log(data);
 							if (data.status === 0) {
-								$('.opacity_bg').hide(); // 隐藏遮罩层
-								// 把创建清空
-								$("#can").empty();
-								$("#input_note_title").val(title);
-								um.setContent("");
-								const html = "<li class=\"online\" data-id='" + data.data + "'>"
-										+ "<a class='checked'>"
-										+ "<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> " + title
-										+ "<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
-										+ "</a>"
-										+ "<div class=\"note_menu\" tabindex='-1'>"
-										+ "<dl>"
-										+ "<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>"
-										+ "<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>"
-										+ "<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>"
-										+ "</dl>"
-										+ "</div>"
-										+ "</li>";
-								$("#notelist").append(html);
+
+								getNoteList(notebookId);
 							} else {
 								alert(data.msg);
 							}
@@ -392,7 +341,9 @@
 							console.log(xhr);
 							console.log(textStatus);
 						}
+
 					});
+
 				});
 
 
@@ -402,6 +353,43 @@
 					$("#can").html("");
 				});
 			});
+
+
+			// 根据笔记本 id 查询所有笔记
+			function getNoteList(notebookId) {
+				$.ajax({
+					url:'/cloudNote_war_exploded/getNoteList/'+notebookId,//请求的url
+					type:'get', //请求方式，GET或POST
+					success:function(data){ //statusCode是2xx 或 304时，执行该函数
+						console.log(data);
+
+						$("#notelist").empty();
+
+						for ( let item of data.data){
+							var html = "<li class=\"online\" data-id='"+item.cn_note_id+"'>"
+							html+="<a>"
+							html+="<i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i> "+item.cn_note_title+"<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_slide_down\"><i class=\"fa fa-chevron-down\"></i></button>"
+							html+="</a>"
+							html+="<div class=\"note_menu\" tabindex='-1'>"
+							html+="<dl>"
+							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>"
+							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>"
+							html+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>"
+							html+="</dl>"
+							html+="</div>"
+							html+="</li>"
+							$("#notelist").append(html);
+						}
+
+
+					},
+					error:function(xhr,textStatus){
+						console.log('错误')
+						console.log(xhr)
+						console.log(textStatus)
+					}
+				});
+			}
 
 			// 根据用户 id 加载笔记本列表
 			function loadNotebookByUser(){

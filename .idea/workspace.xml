@@ -12,8 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--修改--">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_note.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_note.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
