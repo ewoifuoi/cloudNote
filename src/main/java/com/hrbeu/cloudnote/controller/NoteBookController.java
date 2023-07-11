@@ -21,8 +21,8 @@ public class NoteBookController {
     public NoteResult getAllNotebookByuserid(String uid){
 
         List<Notebook> list = service.getUserNotebook(uid);
-        NoteResult nr = new NoteResult(6,"查询笔记本",list);
-        return nr;
+        NoteResult result = new NoteResult(6,"查询笔记本",list);
+        return result;
     }
 
     @RequestMapping("/addNoteBook")
@@ -36,8 +36,8 @@ public class NoteBookController {
 
         nb.setCn_notebook_createtime(NoteUtils.getCurrentTime());   //创建时间
         boolean b = service.addNoteBook(nb);
-        NoteResult nr = new NoteResult(7,"创建笔记本成功,create Notebook success",null);
-        return nr;
+        NoteResult result = new NoteResult(7,"创建笔记本成功,create Notebook success",null);
+        return result;
     }
 
     @GetMapping("/getNoteList/{bookid}")
@@ -76,17 +76,28 @@ public class NoteBookController {
         note.setCn_note_last_modify_time(d.getTime());
         boolean b = service.addNote(note);
         System.out.println(note);
-        NoteResult nr = new NoteResult(9,"添加笔记成功",null);
-        return nr;
+        NoteResult result = new NoteResult(9,"添加笔记成功",null);
+        return result;
     }
 
     @PostMapping("/deleteNote")
     public NoteResult deleteNote(String id) {
-
         service.deleteNote(id);
-
-
         NoteResult result = new NoteResult();
+        return result;
+    }
+
+    @PostMapping("/recycleNote")
+    public NoteResult recycleNote(String id) {
+        service.recycleNote(id);
+        NoteResult result = new NoteResult();
+        return result;
+    }
+
+    @PostMapping("/getRecycledNotes")
+    public NoteResult getRecycledNotes(String uid) {
+        List<Note> list = service.getRecycledNotes(uid);
+        NoteResult result = new NoteResult(9,"", list);
         return result;
     }
 }

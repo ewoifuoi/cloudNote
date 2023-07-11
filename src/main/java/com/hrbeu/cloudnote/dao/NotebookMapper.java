@@ -25,7 +25,7 @@ public interface NotebookMapper {
     public Boolean addNoteBook(Notebook notebook);
 
 
-    @Select("select * from cn_note where cn_notebook_id=#{bookid};")
+    @Select("select * from cn_note where cn_notebook_id=#{bookid} and cn_note_status_id is null;")
     List<Note> getAllNoteBynotebook(String bookid);
 
     @Insert("insert into cn_note(\n" +
@@ -45,4 +45,10 @@ public interface NotebookMapper {
 
     @Update("update cn_note set cn_note_title=#{note_title},cn_note_body=#{note_body} where cn_note_id=#{note_id};")
     Boolean saveNote(@Param("note_id") String note_id, @Param("note_title") String note_title, @Param("note_body") String note_body);
+
+    @Update("update cn_note set cn_note_status_id = 'recycled' where cn_note_id=#{id};")
+    Boolean recycleNote(String id);
+
+    @Select("select * from cn_note where cn_user_id=#{id} and cn_note_status_id='recycled' ;")
+    List<Note> getRecycledNotes(String id);
 }
