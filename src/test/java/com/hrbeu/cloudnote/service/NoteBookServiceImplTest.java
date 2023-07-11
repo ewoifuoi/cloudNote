@@ -43,6 +43,14 @@ public class NoteBookServiceImplTest extends TestCase {
         System.out.println(service.addNote(note));
     }
 
+    public void testTestAddNote() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+
+        Note note = new Note(NoteUtils.getUUID(), "8b13a2b4-8ee9-4aaf-8041-68fb6d068027", "b39894f3-04c8-43b0-a5ba-b4e4ec144536", "测试笔记", new Date().getTime(),new Date().getTime());
+        System.out.println(service.addNote(note));
+    }
+
     public void testGetNote(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
         NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");

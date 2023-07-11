@@ -47,4 +47,9 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.saveNote(note_id,note_title,note_body);
     }
 
+    @Override
+    public Boolean deleteNote(String id) {
+        return mapper.deleteNote(id);
+    }
+
 }

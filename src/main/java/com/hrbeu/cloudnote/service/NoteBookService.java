@@ -18,4 +18,6 @@ public interface NoteBookService {
     List<Note> getNoteById(String noteid);
 
     Boolean save_note(String note_id, String note_title, String note_body);
+
+    Boolean deleteNote(String id);
 }
