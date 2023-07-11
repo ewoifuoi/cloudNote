@@ -21,7 +21,7 @@ public class UserServiceImplTest {
     public void RegisterTest() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserServiceImpl service = (UserServiceImpl) context.getBean("UserServiceImpl");
-        service.Register(new User("test","jfklew","这是一个测试"));
+        service.Register(new User("test","123456","这是一个测试"));
     }
 
     @Test

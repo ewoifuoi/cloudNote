@@ -346,12 +346,22 @@
 
 				});
 
-
 				// 关闭模态框
 				$("#can").on("click",".close,.cancle",function(){ // 关闭笔记本弹出锁屏对话框
 					$(".opacity_bg").css("display","none");
 					$("#can").html("");
 				});
+
+				// 笔记被点击事件
+				$("#notelist").on("click","li",function(){
+					$("#notelist li a").removeClass("checked");
+					$(this).find("a").addClass("checked");
+
+					var noteId = $(this).attr("data-id");
+					console.log("noteId:",noteId);
+					//getNoteList(noteId);
+				})
+
 			});
 
 
@@ -389,6 +399,18 @@
 						console.log(textStatus)
 					}
 				});
+			}
+
+			// 根据笔记id查询笔记标题和内容
+			function  getNote(noteId){
+				$.ajax({
+					url:'/cloudNote_war_exploded/getNote/'+noteId,//请求的url
+					type:'get', //请求方式，GET或POST
+					success:function(){
+						// 将笔记显示到ui里
+					}
+					error:function(){console.log('错误！！')}
+				})
 			}
 
 			// 根据用户 id 加载笔记本列表
