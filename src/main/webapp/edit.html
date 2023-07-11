@@ -66,7 +66,7 @@
 					<div class="row clear_margin">
 						<h3 class="col-xs-9">全部笔记本</h3>
 						<div class="row ">
-							<button style="margin: 0px 3px 1px 0px;" type="button" class="btn btn-default btn_plus" ><i class="fa fa-minus"></i></button>
+							<button style="margin: 0px 3px 1px 0px;" type="button" class="btn btn-default btn_plus" id='delete_notebook' ><i class="fa fa-minus"></i></button>
 							<button style="margin: 3px 0px 3px 6px;" type="button" class="btn btn-default btn_plus" id='add_notebook'><i class="fa fa-plus"></i></button>
 						</div>
 					</div>
@@ -265,9 +265,21 @@
 					$("#can").load("alert/alert_notebook.html");
 				});
 
+				// 删除笔记本按钮响应事件
+				$("#delete_notebook").click(function(){
+					const $a = $("#notebooklist li .checked");
+					// 当 .length 属性是0时，表示没有选中记事本；如果是1，表示选中一个记事本
+					if ($a.length == 0) {
+						alert("请先选中记事本！");
+						return;
+					}
+					$(".opacity_bg").css("display","block");
+					$("#can").load("alert/alert_delete_notebook.html");
+				});
+
 				// 添加笔记本事件
 				$("#can").on("click","#add_notebook_button",function(){
-					alert("test");
+
 					let userid = sessionStorage.getItem("userId");
 					let bookname=$("#input_notebook").val();
 					$.ajax({
@@ -285,6 +297,30 @@
 							alert("创建笔记本失败");
 						}
 					});
+				});
+
+				// 删除笔记本事件
+				$("#can").on("click", "#delete_notebook_button", function () {
+					let notebookId = $("#notebooklist li .checked").parent().attr("data-id");
+					let userid = sessionStorage.getItem("userId");
+
+					$.ajax({
+						url: '/cloudNote_war_exploded/deleteNotebook', // 请求的url
+						type: 'POST', // 请求方式，GET或POST
+						data: { // 发送服务器的数据String notebookid, String noteName, String userid
+							id: notebookId
+						},
+						success: function (data) {
+
+							loadNotebookByUser(userid);
+							getNoteList(notebookId);
+						},
+						error: function (xhr, textStatus) { // statusCode是2xx 或 304 以外的值时，执行该函数
+							alert("删除笔记本失败");
+						}
+
+					});
+
 				});
 
 
@@ -573,6 +609,7 @@
 					data:{"uid":uid},
 					type:"get",
 					success:function (res){
+						$("#notebooklist").empty();
 						var lis="";
 						for(let item of res.data){
 							lis+= '<li class="online" data-id="'+item.cn_notebook_id+'"><a><i class="fa fa-book" title="online" rel="tooltip-bottom"></i>'+item.cn_notebook_name+'</a></li>'

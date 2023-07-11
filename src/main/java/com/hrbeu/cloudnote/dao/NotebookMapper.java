@@ -51,4 +51,7 @@ public interface NotebookMapper {
 
     @Select("select * from cn_note where cn_user_id=#{id} and cn_note_status_id='recycled' ;")
     List<Note> getRecycledNotes(String id);
+
+    @Delete("delete from cn_notebook where cn_notebook_id=#{id};")
+    Boolean deleteNotebook(String id);
 }

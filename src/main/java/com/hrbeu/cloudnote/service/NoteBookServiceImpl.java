@@ -62,5 +62,18 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.getRecycledNotes(id);
     }
 
+    @Override
+    public Boolean deleteNotebook(String id) {
+
+        List<Note> notes = mapper.getNoteById(id);
+        for(Note note :notes) {
+            System.out.println(note.getCn_note_title());
+            mapper.deleteNote(note.getCn_note_id());
+        }
+        mapper.deleteNotebook(id);
+
+        return true;
+    }
+
 
 }

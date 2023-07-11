@@ -100,4 +100,11 @@ public class NoteBookController {
         NoteResult result = new NoteResult(9,"", list);
         return result;
     }
+
+    @PostMapping("/deleteNotebook")
+    public NoteResult deleteNotebook(String id){
+        service.deleteNotebook(id);
+        NoteResult result = new NoteResult();
+        return result;
+    }
 }
