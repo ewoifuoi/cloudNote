@@ -11,7 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" afterDir="false" />

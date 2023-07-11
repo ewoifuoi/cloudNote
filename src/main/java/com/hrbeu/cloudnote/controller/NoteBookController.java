@@ -78,4 +78,11 @@ public class NoteBookController {
         NoteResult result = new NoteResult();
         return result;
     }
+
+    @PostMapping("/getRecycledNotes")
+    public NoteResult getRecycledNotes(String uid) {
+        List<Note> list = service.getRecycledNotes(uid);
+        NoteResult result = new NoteResult(9,"", list);
+        return result;
+    }
 }

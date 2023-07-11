@@ -48,5 +48,10 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.recycleNote(id);
     }
 
+    @Override
+    public List<Note> getRecycledNotes(String id) {
+        return mapper.getRecycledNotes(id);
+    }
+
 
 }

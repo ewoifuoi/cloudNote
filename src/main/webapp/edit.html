@@ -110,7 +110,7 @@
 					<div class="module" data-toggle="niceScroll">
 						<div class="chat-contact">
 							<div class="contact-body">
-								<ul class="contacts-list">
+								<ul class="contacts-list" id="recyclelist">
 									<li class="disable"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> 虚假回收站笔记<button type="button" class="btn btn-default btn-xs btn_position btn_delete"><i class="fa fa-times"></i></button><button type="button" class="btn btn-default btn-xs btn_position_2 btn_replay"><i class="fa fa-reply"></i></button></a></li>
 								</ul>
 							</div>
@@ -539,6 +539,27 @@
 					},
 					error:function (){
 						alert("无法加载笔记本列表");
+					}
+				});
+			}
+
+			function loadRecycledList() {
+				var uid = getCookie("userId");
+				$.ajax({
+					url:"/cloudNote_war_exploded/getRecycledNotes",
+					data:{"uid":uid},
+					type:"get",
+					success:function (res){
+						var lis="";
+						for(let item of res.data){
+							lis += "<li class=\"disable\"><a ><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>";
+							lis += item.cn_note_title;
+							lis += "<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_delete\"><i class=\"fa fa-times\"></i></button><button type=\"button\" class=\"btn btn-default btn-xs btn_position_2 btn_replay\"><i class=\"fa fa-reply\"></i></button></a></li>";
+						}
+						$("#recyclelist").append(lis);
+					},
+					error:function (){
+						alert("无法加载回收站列表");
 					}
 				});
 			}

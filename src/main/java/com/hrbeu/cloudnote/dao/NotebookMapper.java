@@ -41,4 +41,7 @@ public interface NotebookMapper {
 
     @Update("update cn_note set cn_note_status_id = 'recycled' where cn_note_id=#{id};")
     Boolean recycleNote(String id);
+
+    @Select("select * from cn_note where cn_user_id=#{id} and cn_note_status_id='recycled' ;")
+    List<Note> getRecycledNotes(String id);
 }

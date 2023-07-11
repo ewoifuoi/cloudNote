@@ -18,4 +18,6 @@ public interface NoteBookService {
     Boolean deleteNote(String id);
 
     Boolean recycleNote(String id);
+
+    List<Note> getRecycledNotes(String id);
 }
