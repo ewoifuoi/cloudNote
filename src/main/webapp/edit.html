@@ -413,6 +413,65 @@
 					//getNoteList(noteId);
 				})
 
+
+
+				// 回收站展开按钮被点击事件
+				let dustbinf = 0;
+				$("#rollback_button").click(function (){
+					if(!dustbinf) {
+						$("#pc_part_4").css("display","block"); //展示回收站模块
+						$("#pc_part_2").css("display","none");  //隐藏笔记列表
+						$("#rollback_button").css("background","#8d5e5b");
+						dustbinf = 1;
+					}
+					else {
+						$("#pc_part_4").css("display","none");
+						$("#rollback_button").css("background","");
+						dustbinf = 0;
+					}
+					if((actionf&&dustbinf)||(actionf&&likef)||(likef&&dustbinf)) $("#pc_part_3").css("display","none");
+					else $("#pc_part_3").css("display","block");
+					if(!actionf&&!dustbinf&&!likef) $("#pc_part_2").css("display","block");
+				});
+
+				// 收藏列表展开按钮被点击事件
+				let likef = 0;
+				$("#like_button").click(function (){
+					if(!likef) {
+						$("#pc_part_7").css("display","block"); //展示回收站模块
+						$("#pc_part_2").css("display","none");  //隐藏笔记列表
+						$("#like_button").css("background","#8d5e5b");
+						likef = 1;
+					}
+					else {
+						$("#pc_part_7").css("display","none");
+						$("#like_button").css("background","");
+						likef = 0;
+					}
+					if((actionf&&dustbinf)||(actionf&&likef)||(likef&&dustbinf)) $("#pc_part_3").css("display","none");
+					else $("#pc_part_3").css("display","block");
+					if(!actionf&&!dustbinf&&!likef) $("#pc_part_2").css("display","block");
+				});
+
+				// 活动笔记展开按钮被点击事件
+				let actionf = 0;
+				$("#action_button").click(function (){
+					if(!actionf) {
+						$("#pc_part_8").css("display","block"); //展示回收站模块
+						$("#pc_part_2").css("display","none");  //隐藏笔记列表
+						$("#action_button").css("background","#8d5e5b");
+						actionf = 1;
+					}
+					else {
+						$("#pc_part_8").css("display","none");
+						$("#action_button").css("background","");
+						actionf = 0;
+					}
+					if((actionf&&dustbinf)||(actionf&&likef)||(likef&&dustbinf)) $("#pc_part_3").css("display","none");
+					else $("#pc_part_3").css("display","block");
+					if(!actionf&&!dustbinf&&!likef) $("#pc_part_2").css("display","block");
+				});
+
 			});
 
 
