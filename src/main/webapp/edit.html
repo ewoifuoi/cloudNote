@@ -93,19 +93,7 @@
 					<div class="module" data-toggle="niceScroll">
 						<div class="chat-contact">
 							<div class="contact-body">
-								<ul class="contacts-list">
-									<li class="online">
-										<a  class='checked'>
-											<i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> 使用Java操作符<button type="button" class="btn btn-default btn-xs btn_position btn_slide_down"><i class="fa fa-chevron-down"></i></button>
-										</a>
-										<div class="note_menu" tabindex='-1'>
-											<dl>
-												<dt><button type="button" class="btn btn-default btn-xs btn_move" title='移动至...'><i class="fa fa-random"></i></button></dt>
-												<dt><button type="button" class="btn btn-default btn-xs btn_share" title='分享'><i class="fa fa-sitemap"></i></button></dt>
-												<dt><button type="button" class="btn btn-default btn-xs btn_delete" title='删除'><i class="fa fa-times"></i></button></dt>
-											</dl>
-										</div>
-									</li>
+								<ul class="contacts-list" id="notelist">
 								</ul>
 							</div>
 						</div>
@@ -307,17 +295,12 @@
 					console.log("notebookId:",notebookId)
 
 					$.ajax({
-						url:'/getNoteList/',//请求的url
-						type:'POST', //请求方式，GET或POST
-						data:{ //发送服务器的数据
-							userId:user_id,
-							notebookId:notebookId
-						},
-						dataType:'json',  //返回的数据格式：json/xml/html/script/jsonp/text
-						success:function(data,textStatus,jqXHR){ //statusCode是2xx 或 304时，执行该函数
+						url:'/cloudNote_war_exploded/getNoteList/'+notebookId,//请求的url
+						type:'get', //请求方式，GET或POST
+						success:function(data){ //statusCode是2xx 或 304时，执行该函数
 							console.log(data)
 							//先清空原有的数据
-							$("#note_ul").empty()
+							$("#notelist").empty()
 							//遍历数据，动态加载数据
 							for ( let item of data.data){
 								var html = "<li class=\"online\" data-id='"+item.cnNoteId+"'>"
@@ -332,7 +315,7 @@
 								html+="</dl>"
 								html+="</div>"
 								html+="</li>"
-								$("#note_ul").append(html)
+								$("#notelist").append(html)
 							}
 
 
