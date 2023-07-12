@@ -36,4 +36,6 @@ public interface NoteBookService {
     Boolean moveNote(String noteid, String target);
 
     Boolean clearDustbin(String uid);
+
+    String getUserName(String uid);
 }

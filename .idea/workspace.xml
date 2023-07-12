@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -10,8 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02a3b16c-08e7-4ce7-9306-d5d9bb096eeb" name="Changes" comment="merged">
+    <list default="true" id="91199d6a-ca19-441a-a4b4-154037d53bd2" name="Changes" comment="merged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

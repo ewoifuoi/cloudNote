@@ -147,4 +147,9 @@ public class NoteBookController {
         NoteResult result = new NoteResult();
         return result;
     }
+
+    @PostMapping("/getUserName")
+    public String getUserName(String uid){
+        return service.getUserName(uid);
+    }
 }

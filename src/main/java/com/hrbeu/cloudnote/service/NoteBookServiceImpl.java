@@ -114,6 +114,10 @@ public class NoteBookServiceImpl implements NoteBookService {
 
         return true;
     }
+    @Override
+    public String getUserName(String uid){
+        return mapper.getUserName(uid);
+    }
 
 
 }

@@ -66,4 +66,7 @@ public interface NotebookMapper {
 
     @Update("update cn_note set cn_note_type_id = null where cn_note_id=#{id};")
     Boolean deleteFavorNote(String id);
+
+    @Select("select cn_user_name from cn_user where cn_user_id=#{uid};")
+    public String getUserName(String uid);
 }

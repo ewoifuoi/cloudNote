@@ -86,4 +86,11 @@ public class NoteBookServiceImplTest extends TestCase {
         Boolean b = service.deleteFavorNote("5ba9813a-bbf9-472e-9d88-9dc79e9e74c2");
         System.out.println(b);
     }
+
+    public void testGetUserName() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+        String b = service.getUserName("");
+        System.out.println(b);
+    }
 }
