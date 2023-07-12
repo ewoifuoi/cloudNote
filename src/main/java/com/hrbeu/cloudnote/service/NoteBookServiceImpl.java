@@ -101,4 +101,19 @@ public class NoteBookServiceImpl implements NoteBookService {
     public Boolean moveNote(String noteid, String target) {
         return mapper.moveNote(noteid,target);
     }
+
+    @Override
+    public Boolean clearDustbin(String uid) {
+
+        System.out.println(uid);
+        List<Note> notes = mapper.getRecycledNotes(uid);
+        System.out.println("待删除笔记列表"+notes);
+        for(Note note : notes) {
+            mapper.deleteNote(note.getCn_note_id());
+        }
+
+        return true;
+    }
+
+
 }

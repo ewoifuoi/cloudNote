@@ -137,4 +137,14 @@ public class NoteBookController {
         NoteResult result = new NoteResult();
         return result;
     }
+
+    @PostMapping("/clearDustbin")
+    public NoteResult clearDustbin(String uid) {
+
+        System.out.println("controller:"+uid);
+        service.clearDustbin(uid);
+
+        NoteResult result = new NoteResult();
+        return result;
+    }
 }

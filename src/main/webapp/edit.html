@@ -108,8 +108,9 @@
 			<!-- 全部笔记 -->
 			<!-- 回收站笔记 -->
 			<div class="col-xs-3" style='padding:0;display:none;' id='pc_part_4'>
-				<div class="pc_top_second">
+				<div class="pc_top_second" id='notebookId'>
 					<h3>回收站笔记</h3>
+					<button type="button" class="btn btn-default btn-xs btn_plus " id="join_action">一键清空回收站</button>
 				</div>
 				<aside class="side-right" id='four_side_right'>
 					<div class="module" data-toggle="niceScroll">
@@ -491,6 +492,29 @@
 					});
 				});
 
+				// 一键清空回收站按钮
+				$("#join_action").click(function () {
+					$('.opacity_bg').show(); // 遮罩层
+					// 发送ajax请求，将返回的html代码显示到id是can的标签中
+					$("#can").load("alert/alert_clear_dustbin.html");
+				});
+
+				// 清空回收站事件
+				$("#can").on("click","#clear_dustbin_btn",function () {
+					$.ajax({
+						url:'/cloudNote_war_exploded/clearDustbin',//请求的url
+						type:'POST',
+						data:{
+							uid:uid,
+						},
+						success:function(data){
+							loadRecycledList();
+						},
+						error:function(){
+							alert("清空回收站失败");
+						}
+					});
+				});
 
 				// 移入回收站事件
 				$("#can").on("click","#delete_note_btn",function () {
@@ -776,7 +800,6 @@
 
 			// 根据用户 id 加载笔记本列表
 			function loadNotebookByUser(){
-				var uid = getCookie("userId");
 				$.ajax({
 					url:"/cloudNote_war_exploded/getNotebookByuserid",
 					data:{"uid":uid},
@@ -797,7 +820,6 @@
 
 			// 一个通用的获取笔记本的函数, 传入的是容器的id
 			function getNoteBookList(container){
-				var uid = getCookie("userId");
 				$.ajax({
 					url:"/cloudNote_war_exploded/getNotebookByuserid",
 					data:{"uid":uid},
@@ -817,7 +839,6 @@
 			}
 
 			function loadRecycledList() {
-				var uid = getCookie("userId");
 				$("#recyclelist").empty();
 				$.ajax({
 					url:"/cloudNote_war_exploded/getRecycledNotes",
