@@ -464,15 +464,17 @@
 				// 回收站恢复事件
 				$("#can").on("click","#replay_button",function () {
 
-					let notebookid = $("#recyclelist").val();
+					let notebookid = $("#replaySelect").val();
+					console.log(notebookid);
 					const $li = $("#recyclelist li .checked").parents("li");
 					const id = $li.attr("data-id");
 
 					$.ajax({
-						url:'/cloudNote_war_exploded/deleteNote',//请求的url
-						type:'POST',
+						url:'/cloudNote_war_exploded/moveNote',//请求的url
+						method:'post',
 						data:{
-							id:id,
+							noteid:id,
+							target: notebookid,
 						},
 						success:function(data){
 							console.log(data);
@@ -484,7 +486,7 @@
 							loadRecycledList();
 						},
 						error:function(){
-							alert("彻底删除笔记失败");
+							alert("恢复笔记失败");
 						}
 					});
 				});

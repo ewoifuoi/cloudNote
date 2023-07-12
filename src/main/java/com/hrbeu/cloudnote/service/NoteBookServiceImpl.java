@@ -76,5 +76,10 @@ public class NoteBookServiceImpl implements NoteBookService {
         return true;
     }
 
+    @Override
+    public Boolean moveNote(String noteid, String target) {
+        return mapper.moveNote(noteid,target);
+    }
+
 
 }

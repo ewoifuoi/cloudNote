@@ -26,4 +26,6 @@ public interface NoteBookService {
     List<Note> getRecycledNotes(String id);
 
     Boolean deleteNotebook(String id);
+
+    Boolean moveNote(String noteid, String target);
 }
