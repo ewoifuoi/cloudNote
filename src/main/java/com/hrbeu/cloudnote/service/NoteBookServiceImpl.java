@@ -97,5 +97,10 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.deleteFavorNote(id);
     }
 
+    @Override
+    public Boolean moveNote(String noteid, String target) {
+        return mapper.moveNote(noteid,target);
+    }
+
 
 }

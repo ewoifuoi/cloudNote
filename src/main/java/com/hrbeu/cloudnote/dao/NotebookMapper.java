@@ -55,6 +55,9 @@ public interface NotebookMapper {
     @Delete("delete from cn_notebook where cn_notebook_id=#{id};")
     Boolean deleteNotebook(String id);
 
+    @Update("update cn_note set cn_notebook_id =#{target} ,cn_note_status_id=null where cn_note_id=#{noteid};")
+    Boolean moveNote(@Param("noteid") String noteid, @Param("target") String target);
+
     @Update("update cn_note set cn_note_type_id = 'favor' where cn_note_id=#{id};")
     Boolean favorNote(String id);
 

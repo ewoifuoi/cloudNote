@@ -32,4 +32,6 @@ public interface NoteBookService {
     List<Note> getFavorNotes(String id);
 
     Boolean deleteFavorNote(String id);
+
+    Boolean moveNote(String noteid, String target);
 }

@@ -129,4 +129,13 @@ public class NoteBookController {
         NoteResult result = new NoteResult();
         return result;
     }
+
+
+    @PostMapping("/moveNote")
+    public NoteResult moveNote(String noteid , String target) {
+
+        service.moveNote(noteid,target);
+        NoteResult result = new NoteResult();
+        return result;
+    }
 }

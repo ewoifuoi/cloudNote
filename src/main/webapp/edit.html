@@ -238,7 +238,7 @@
 			<!-- 预览笔记 -->
 		</div>
 		<footer style='width: 100%;padding:0;' >
-			<p>&copy; 2014 Stilearning</p>
+			<p>&copy; 2023 Stilearning</p>
 			<div style='position:absolute;top:5PX;height:30px;right:20px;line-height:26px;border:1px solid #0E7D76;display:none;background:#fff'>
 				<strong style='color:#0E7D76;margin:0 10px;'></strong>
 			</div>
@@ -324,7 +324,6 @@
 
 				});
 
-
 				// 笔记本被点击事件(查询笔记本对应笔记列表)
 				$("#notebooklist").on("click","li",function () {
 					$("#notebooklist li a").removeClass("checked");
@@ -408,9 +407,93 @@
 					$('.opacity_bg').show();// 遮罩层
 					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
 					$("#can").load("alert/alert_delete_note.html")
+				});
+
+				// 回收站彻底删除按钮
+				$("#recyclelist").on("click","#delete_completely",function () {
+					// 弹出确认删除对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_delete_rollback.html")
+				});
+
+				// 回收站笔记被点击事件
+				$("#recyclelist").on("click","li",function(){
+					$("#recyclelist li a").removeClass("checked");
+					$(this).find("a").addClass("checked");
 				})
 
-				// 点击删除笔记确认对话框按钮
+				// 彻底删除笔记事件
+				$("#can").on("click","#delete_completely",function () {
+
+					// 查找祖先元素，并且是 li 标签的祖先
+					const $li = $("#recyclelist li .checked").parents("li");
+					const id = $li.attr("data-id");
+					console.log("id:",id);
+
+					$.ajax({
+						url:'/cloudNote_war_exploded/deleteNote',//请求的url
+						type:'POST',
+						data:{
+							id:id,
+						},
+						success:function(data){
+							console.log(data);
+
+							if(data.status == 0){
+								$li.remove();
+
+							}
+							loadRecycledList();
+						},
+						error:function(){
+							alert("彻底删除笔记失败");
+						}
+					});
+				});
+
+				// 回收站恢复按钮
+				$("#recyclelist").on("click","#replay_button",function () {
+					// 弹出确认删除对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_replay.html")
+					getNoteBookList("#replaySelect");
+				});
+
+				// 回收站恢复事件
+				$("#can").on("click","#replay_button",function () {
+
+					let notebookid = $("#replaySelect").val();
+					console.log(notebookid);
+					const $li = $("#recyclelist li .checked").parents("li");
+					const id = $li.attr("data-id");
+
+					$.ajax({
+						url:'/cloudNote_war_exploded/moveNote',//请求的url
+						method:'post',
+						data:{
+							noteid:id,
+							target: notebookid,
+						},
+						success:function(data){
+							console.log(data);
+
+							if(data.status == 0){
+								$li.remove();
+
+							}
+							loadRecycledList();
+						},
+						error:function(){
+							alert("恢复笔记失败");
+						}
+					});
+				});
+
+
+
+				// 移入回收站事件
 				$("#can").on("click","#delete_note_btn",function () {
 
 					// 查找祖先元素，并且是 li 标签的祖先
@@ -431,7 +514,7 @@
 								$li.remove();
 
 							}
-							getNoteList(notebookId);
+							getNoteList(currentNoteBookId);
 						},
 						error:function(){
 							alert("删除笔记失败");
@@ -700,6 +783,27 @@
 				});
 			}
 
+			// 一个通用的获取笔记本的函数, 传入的是容器的id
+			function getNoteBookList(container){
+				var uid = getCookie("userId");
+				$.ajax({
+					url:"/cloudNote_war_exploded/getNotebookByuserid",
+					data:{"uid":uid},
+					type:"get",
+					success:function (res){
+						$(container).empty();
+						var lis="";
+						for(let item of res.data) {
+							lis += "<option value=\""+ item.cn_notebook_id +"\">"+ item.cn_notebook_name +"</option>";
+						}
+						$(container).append(lis);
+					},
+					error:function (){
+						alert("无法加载笔记本列表");
+					}
+				});
+			}
+
 			function loadRecycledList() {
 				var uid = getCookie("userId");
 				$("#recyclelist").empty();
@@ -710,9 +814,9 @@
 					success:function (res){
 						var lis="";
 						for(let item of res.data){
-							lis += "<li class=\"disable\"><a><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>";
+							lis += "<li data-id='"+item.cn_note_id+"' class=\"disable\"><a><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>";
 							lis += item.cn_note_title;
-							lis += "<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_delete\"><i class=\"fa fa-times\"></i></button><button type=\"button\" class=\"btn btn-default btn-xs btn_position_2 btn_replay\"><i class=\"fa fa-reply\"></i></button></a></li>";
+							lis += "<button id='delete_completely' type=\"button\" class=\"btn btn-default btn-xs btn_position btn_delete\"><i class=\"fa fa-times\"></i></button><button id='replay_button' type=\"button\" class=\"btn btn-default btn-xs btn_position_2 btn_replay\"><i class=\"fa fa-reply\"></i></button></a></li>";
 						}
 						$("#recyclelist").append(lis);
 					},
