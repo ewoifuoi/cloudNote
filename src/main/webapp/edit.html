@@ -265,11 +265,11 @@
 
 			// 预加载=============================================
 			$(document).ready(function () {
-
+				//欢迎页面
 				$.ajax({
 					url:"/cloudNote_war_exploded/getUserName",
-					type:"post",
-					data:{"uid":uid,},
+					type:"POST",
+					data:{uid:uid,},
 					success:function (res){
 						var dataContainer = $("#helloworld");
 						var currentDate = new Date();
@@ -277,11 +277,22 @@
 						var currentMonth = currentDate.getMonth() + 1;
 						var currentDay = currentDate.getDate();
 						var currentHour = currentDate.getHours();
-						console.log(currentHour);
+						var time = '';
 						dataContainer.empty();
+						if(currentHour<11){
+							time = "上午好";
+						}
+						else if(currentHour>=11 && currentHour<13){
+							time = "中午好";
+						}
+						else{
+							time = "下午好";
+						}
 						var lis='';
 						// 创建新的元素来展示每个数据项
-						lis +="<h>Hi,"+res.data+"</h>";
+						lis +="<h1>" + time + "，"+res+"</h1><br>";
+						lis +="<h3>今天是"+currentYear+"年"+currentMonth+"月"+currentDay+"日"+"</h3>";
+						lis +="<br><p>想要记录一些生活小碎片吗？</p><br>"
 						// 将新元素添加到容器中
 						$(dataContainer).append(lis);
 					},
@@ -289,6 +300,7 @@
 						console.log("失败");
 					}
 				})
+
 
 				var notebookId = null;
 				// 添加笔记本按钮响应事件
