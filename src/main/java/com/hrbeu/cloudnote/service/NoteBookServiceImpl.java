@@ -65,9 +65,10 @@ public class NoteBookServiceImpl implements NoteBookService {
     @Override
     public Boolean deleteNotebook(String id) {
 
-        List<Note> notes = mapper.getNoteById(id);
+        List<Note> notes = mapper.getAllNoteBynotebook(id);
+
         for(Note note :notes) {
-            System.out.println(note.getCn_note_title());
+            System.out.println("已删除笔记:"+note.getCn_note_title());
             mapper.deleteNote(note.getCn_note_id());
         }
         mapper.deleteNotebook(id);

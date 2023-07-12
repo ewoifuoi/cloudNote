@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -9,13 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb6e6ae5-a4f8-44c2-b686-66a426c2f24b" name="Changes" comment="--update--">
+    <list default="true" id="fb6e6ae5-a4f8-44c2-b686-66a426c2f24b" name="Changes" comment="merged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_notebook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_notebook.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -302,7 +299,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="de321d16-f611-4d0d-af75-8bea915f41cc" name="Changes" comment="--update--" />
+      <changelist id="fb6e6ae5-a4f8-44c2-b686-66a426c2f24b" name="Changes" comment="merged" />
       <created>1688706396014</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -315,6 +312,7 @@
       <workItem from="1688992207032" duration="6071000" />
       <workItem from="1689036757651" duration="1570000" />
       <workItem from="1689070755295" duration="6202000" />
+      <workItem from="1689122667954" duration="1339000" />
     </task>
     <task id="LOCAL-00001" summary="删除了abcd====">
       <created>1688979378509</created>

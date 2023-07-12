@@ -314,8 +314,9 @@
 
 							loadNotebookByUser(userid);
 							getNoteList(notebookId);
+							alert("删除笔记本成功");
 						},
-						error: function (xhr, textStatus) { // statusCode是2xx 或 304 以外的值时，执行该函数
+						error: function () { // statusCode是2xx 或 304 以外的值时，执行该函数
 							alert("删除笔记本失败");
 						}
 
