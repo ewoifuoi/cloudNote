@@ -20,4 +20,10 @@ public interface NoteBookService {
     Boolean save_note(String note_id, String note_title, String note_body);
 
     Boolean deleteNote(String id);
+
+    Boolean recycleNote(String id);
+
+    List<Note> getRecycledNotes(String id);
+
+    Boolean deleteNotebook(String id);
 }
