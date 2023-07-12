@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -12,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fb6e6ae5-a4f8-44c2-b686-66a426c2f24b" name="Changes" comment="merged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_rollback.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_rollback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_replay.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_replay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
