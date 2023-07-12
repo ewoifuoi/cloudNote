@@ -65,9 +65,9 @@
 					<!-- side-right -->
 					<div class="pc_top_first">
 						<div class="row clear_margin">
-							<h3 class="col-md-9">全部笔记本</h3>
+							<h3 class="col-md-8">全部笔记本</h3>
 							<div class="row ">
-								<button style="margin: 0px 3px 1px 0px;" type="button" class="btn btn-default btn_plus" id='delete_notebook' ><i class="fa fa-minus"></i></button>
+								<button style="margin: 0px 25px 1px 0px;" type="button" class="btn btn-default btn_plus" id='delete_notebook' ><i class="fa fa-minus"></i></button>
 								<button style="margin: 3px 0px 3px 6px;" type="button" class="btn btn-default btn_plus" id='add_notebook'><i class="fa fa-plus"></i></button>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding:0;display:none;' id='pc_part_4'>
 					<div class="pc_top_second">
 						<h3>回收站笔记</h3>
-						<button type="button" class="btn btn-default btn-md btn_plus " id="join_action">一键清空回收站</button>
+						<button type="button" class="btn btn-default btn-md btn_plus " id="join_action">清空回收站</button>
 					</div>
 					<aside class="side-right" id='four_side_right'>
 						<div class="module" data-toggle="niceScroll">
@@ -217,24 +217,15 @@
 				</div>
 				<!-- 编辑笔记 -->
 				<!-- 预览笔记 -->
-				<div class="col-sm-7" id='pc_part_5' style='display:none;' >
-					<div class="pc_top_third">
-						<div class="row">
-							<div class="col-md-9">
-								<h3>预览笔记</h3>
-							</div>
+				<div class="col-sm-7" id='pc_part_5' style='display:block;' >
+
+					<aside style="background: none" class="side-right" id='fifth_side_right'>
+						<div class="jumbotron">
+							<h2 id="helloworld">下午好，ewoifuoi</h2>
+							<p>...</p>
+							<p><a class="btn btn-primary btn-lg" href="#" role="button" id="add_notebook2">新建笔记本</a></p>
 						</div>
-					</div>
-					<aside class="side-right" id='fifth_side_right'>
-						<div class="module" data-toggle="niceScroll">
-							<div class="chat-contact">
-								<div class="contact-body clear_margin">
-									<h4 id="noput_note_title"></h4>
-									<p>
-									</p>
-								</div>
-							</div>
-						</div>
+
 					</aside>
 				</div>
 				<!-- 预览笔记 -->
@@ -279,6 +270,10 @@
 				var notebookId = null;
 				// 添加笔记本按钮响应事件
 				$("#add_notebook").click(function(){
+					$(".opacity_bg").css("display","block");
+					$("#can").load("alert/alert_notebook.html");
+				});
+				$("#add_notebook2").click(function(){
 					$(".opacity_bg").css("display","block");
 					$("#can").load("alert/alert_notebook.html");
 				});
@@ -738,6 +733,7 @@
 					$("#pc_part_3").css("display","block");ifeditor = true;
 				}
 				if(ifeditor) {
+					$("#pc_part_5").css("display","none");
 					if(op==='notelist') {clear_all_4();}
 					if(op==='recyclelist') {
 						clear_all_4();
@@ -756,6 +752,7 @@
 					}
 				}
 				else {
+					$("#pc_part_5").css("display","block");
 					if(op==='notelist') {clear_all_4();}
 					if(op==='recyclelist') {
 						clear_all_4();
