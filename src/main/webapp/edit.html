@@ -255,6 +255,7 @@
 				loadNotebookByUser();//加载笔记本
 				console.log("加载笔记本");
 			}
+			clear_all_selected();
 
 			// 预加载=============================================
 			$(document).ready(function () {
@@ -334,6 +335,7 @@
 					var notebookId = $(this).attr("data-id");
 					currentNoteBookId = notebookId;
 					console.log("notebookId:",notebookId);
+					open_notelist(true);
 					getNoteList(notebookId);
 				});
 
@@ -662,7 +664,7 @@
 				$("#notelist").on("click","li",function(){
 					$("#notelist li a").removeClass("checked");
 					$(this).find("a").addClass("checked");
-
+					open_editor(true);
 					var noteId = $(this).attr("data-id");
 					currentNoteId = noteId;
 					console.log("noteId:",noteId);
@@ -753,6 +755,32 @@
 				})
 			});
 
+			// 取消所有选中
+			function clear_all_selected() {
+				$("#pc_part_4").css("display","none");
+				$("#rollback_button").css("background","");
+				$("#pc_part_7").css("display","none");
+				$("#like_button").css("background","");
+				$("#pc_part_8").css("display","none");
+				$("#action_button").css("background","");
+				$("#pc_part_2").css("display","none");
+				$("#pc_part_3").css("display","none");
+			}
+
+			function open_notelist(op) {
+				if(op) {
+					clear_all_selected();
+					$("#pc_part_2").css("display","block");
+				}
+				else {
+					$("#pc_part_2").css("display","none");
+				}
+			}
+
+			function open_editor(op) {
+				if(op) $("#pc_part_3").css("display","block");
+				else $("#pc_part_3").css("display","none");
+			}
 
 			// 根据笔记本 id 查询所有笔记
 			function getNoteList(notebookId) {
