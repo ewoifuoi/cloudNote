@@ -415,6 +415,47 @@
 					$(this).slideUp()  //有动画效果的收回菜单
 				})
 
+				//点击移动笔记按钮
+				$("#notelist").on("click",".btn_move",function () {
+
+					// 弹出确认收藏对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_move.html");
+					getNoteBookList("#MoveSelect");
+
+				});
+
+				//移动笔记事件
+				$("#can").on("click","#move_button",function () {
+					let notebookid = $("#MoveSelect").val();
+					console.log("需要看到的值:"+notebookid);
+					const $li = $("#notelist li .checked").parents("li");
+					const id = $li.attr("data-id");
+					console.log("笔记id="+id);
+					$.ajax({
+						url:'/cloudNote_war_exploded/moveNote',//请求的url
+						method:'post',
+						data:{
+							noteid:id,
+							target: notebookid,
+						},
+						success:function(data){
+							console.log(data);
+
+							if(data.status == 0){
+								$li.remove();
+
+							}
+							getNoteList(currentNoteBookId);
+						},
+						error:function(){
+							alert("移动笔记失败");
+						}
+					});
+
+				})
+
 				// 移入回收站按钮
 				$("#notelist").on("click",".btn_delete",function () {
 					// 弹出确认删除对话框
@@ -706,45 +747,7 @@
 					})
 				})
 
-				//点击移动笔记按钮
-				$("#notelist").on("click",".btn_move",function () {
-					// 弹出确认收藏对话框
-					$('.opacity_bg').show();// 遮罩层
-					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
-					$("#can").load("alert/alert_move.html");
-					getNoteBookList("#MoveSelect");
-					console.log($("MoveSelect").val());
-				});
 
-				//移动笔记事件
-				$("#can").on("click","#move_button",function () {
-					Movenotebookid = $("MoveSelect").val();
-					console.log(Movenotebookid);
-					const $li = $("#notelist li .checked").parents("li");
-					const id = $li.attr("data-id");
-					console.log("笔记id="+id);
-					/*$.ajax({
-						url:'/cloudNote_war_exploded/moveNote',//请求的url
-						method:'post',
-						data:{
-							noteid:id,
-							target: notebookid,
-						},
-						success:function(data){
-							console.log(data);
-
-							if(data.status == 0){
-								$li.remove();
-
-							}
-							getNoteList(currentNoteBookId);
-						},
-						error:function(){
-							alert("移动笔记失败");
-						}
-					});*/
-
-				})
 
 
 
