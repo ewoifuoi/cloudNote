@@ -415,7 +415,7 @@
 					$(this).slideUp()  //有动画效果的收回菜单
 				})
 
-				// 点击删除笔记按钮
+				// 移入回收站按钮
 				$("#notelist").on("click",".btn_delete",function () {
 					// 弹出确认删除对话框
 					$('.opacity_bg').show();// 遮罩层
@@ -511,12 +511,7 @@
 					// 发送ajax请求，将返回的html代码显示到id是can的标签中
 					$("#can").load("alert/alert_clear_dustbin.html");
 				});
-				// 一键清空回收站按钮
-				$("#join_action").click(function () {
-					$('.opacity_bg').show(); // 遮罩层
-					// 发送ajax请求，将返回的html代码显示到id是can的标签中
-					$("#can").load("alert/alert_clear_dustbin.html");
-				});
+
 
 				// 清空回收站事件
 				$("#can").on("click","#clear_dustbin_btn",function () {
@@ -534,24 +529,6 @@
 						}
 					});
 				});
-
-				// 清空回收站事件
-				$("#can").on("click","#clear_dustbin_btn",function () {
-					$.ajax({
-						url:'/cloudNote_war_exploded/clearDustbin',//请求的url
-						type:'POST',
-						data:{
-							uid:uid,
-						},
-						success:function(data){
-							loadRecycledList();
-						},
-						error:function(){
-							alert("清空回收站失败");
-						}
-					});
-				});
-
 
 				// 移入回收站事件
 				$("#can").on("click","#delete_note_btn",function () {
@@ -736,6 +713,7 @@
 					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
 					$("#can").load("alert/alert_move.html");
 					getNoteBookList("#MoveSelect");
+					console.log($("MoveSelect").val());
 				});
 
 				//移动笔记事件
