@@ -59,8 +59,7 @@ public class NoteBookController {
 
     @GetMapping("/save_note")
     public Boolean save_note(String noteId,String note_title,String note_body){
-        Boolean b = service.save_note(noteId,note_title,note_body);
-        return b;
+         return service.save_note(noteId, note_title, note_body);
     }
 
     @PostMapping("/addNote")

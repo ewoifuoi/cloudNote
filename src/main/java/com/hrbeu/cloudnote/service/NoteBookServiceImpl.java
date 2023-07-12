@@ -43,7 +43,7 @@ public class NoteBookServiceImpl implements NoteBookService {
 
     @Override
     public Boolean save_note(String note_id, String note_title, String note_body){
-        System.out.println("服务层的数据："+note_id+" "+note_title+" "+note_body);
+        //System.out.println("服务层的数据："+note_id+" "+note_title+" "+note_body);
         return mapper.saveNote(note_id,note_title,note_body);
     }
 
@@ -101,6 +101,4 @@ public class NoteBookServiceImpl implements NoteBookService {
     public Boolean moveNote(String noteid, String target) {
         return mapper.moveNote(noteid,target);
     }
-
-
 }

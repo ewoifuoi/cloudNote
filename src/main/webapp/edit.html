@@ -696,9 +696,14 @@
 						},
 						type:'get', //请求方式，GET或POST
 						success:function(res){
-							console.log(res);
-							alert("保存成功");
-							getNoteList(currentNoteBookId);
+							if(res) {
+								console.log(res);
+								alert("保存成功");
+								getNoteList(currentNoteBookId);
+							}
+							else{
+								alert("保存出错");
+							}
 						},
 						error:function(){console.log('错误！！');}
 					})
