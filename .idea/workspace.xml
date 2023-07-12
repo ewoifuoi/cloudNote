@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -11,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1c8b850-41c8-46c8-a4ee-0e7b9d0444e0" name="Changes" comment="merged">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -314,7 +314,7 @@
       <workItem from="1689036757651" duration="1570000" />
       <workItem from="1689070755295" duration="6202000" />
       <workItem from="1689123753162" duration="1512000" />
-      <workItem from="1689158175070" duration="379000" />
+      <workItem from="1689158175070" duration="4052000" />
     </task>
     <task id="LOCAL-00001" summary="删除了abcd====">
       <created>1688979378509</created>
