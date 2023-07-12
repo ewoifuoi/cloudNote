@@ -23,227 +23,220 @@
 		</head>
 	<body class="animated fadeIn">
 
-		<header style='width: 100%;padding:0;' class="header" >
-			<div class="header-brand">
-				<a data-pjax=".content-body" href="edit.html">
-					<img class="brand-logo" src="images/dummy/8986f28e.stilearn-logo.png" alt="Stilearn Admin Sample Logo">
-				</a>
-			</div>
-			<div class="header-profile">
-				<div class="profile-nav">
-					<span class="profile-username"></span>
-					<a  class="dropdown-toggle" data-toggle="dropdown">
-						<span class="fa fa-angle-down"></span>
+		<div style="margin:0px 60px 0px 60px">
+			<header style='padding:0;margin:0px 30px 0px 30px;' class="header" >
+				<div class="header-brand">
+					<a data-pjax=".content-body" href="edit.html">
+						<img class="brand-logo" src="images/dummy/8986f28e.stilearn-logo.png" alt="Stilearn Admin Sample Logo">
 					</a>
-					<ul class="dropdown-menu animated flipInX pull-right" role="menu">
-						<li><a href="Change_password.html"><i class="fa fa-user"></i> 修改密码</a></li>
-						<li class="divider"></li>
-						<li><a id="logout" href="log_in.html" ><i class="fa fa-sign-out"></i> 退出登录</a></li>
-					</ul>
 				</div>
-			</div>
-			<form class="form-inline" onsubmit="return false;">
-				<button type="button" class="btn btn-default btn-expand-search"><i class="fa fa-search"></i></button>
-				<div class="toggle-search">
-					<input type="text" class="form-control" placeholder="搜索笔记" id='search_note'>
-					<button type="button" class="btn btn-default btn-collapse-search"><i class="fa fa-times"></i></button>
+				<div class="header-profile">
+					<div class="profile-nav">
+						<span class="profile-username"></span>
+						<a  class="dropdown-toggle" data-toggle="dropdown">
+							<span class="fa fa-angle-down"></span>
+						</a>
+						<ul class="dropdown-menu animated flipInX pull-right" role="menu">
+							<li><a href="Change_password.html"><i class="fa fa-user"></i> 修改密码</a></li>
+							<li class="divider"></li>
+							<li><a id="logout" href="log_in.html" ><i class="fa fa-sign-out"></i> 退出登录</a></li>
+						</ul>
+					</div>
 				</div>
-			</form>
-			<ul class="hidden-md header-menu pull-right">
-				<li>
-					<a href="activity.html" target='_blank' title="笔记活动">活动</a>
-				</li>
-			</ul>
-		</header >
-		<div class="row" style='padding:0;' id='center'>
-			<!-- alert_background-->
-			<div class="opacity_bg" style='display:none;'></div>
-			<!-- alert_notebook -->
-			<div id="can"></div>
-			<div class="col-md-2" style='padding:0;' id='pc_part_1'>
-				<!-- side-right -->
-				<div class="pc_top_first">
+				<form class="form-inline" onsubmit="return false;">
+					<button type="button" class="btn btn-default btn-expand-search"><i class="fa fa-search"></i></button>
+					<div class="toggle-search">
+						<input type="text" class="form-control" placeholder="搜索笔记" id='search_note'>
+						<button type="button" class="btn btn-default btn-collapse-search"><i class="fa fa-times"></i></button>
+					</div>
+				</form>
+				<ul class="hidden-md header-menu pull-right">
+					<li>
+						<a href="activity.html" target='_blank' title="笔记活动">活动</a>
+					</li>
+				</ul>
+			</header >
+			<div class="row" style='padding:0; margin:0px 0px 0px 30px;' id='center'>
+				<!-- alert_background-->
+				<div class="opacity_bg" style='display:none;'></div>
+				<!-- alert_notebook -->
+				<div id="can"></div>
+				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding: 0px' id='pc_part_1'>
+					<!-- side-right -->
+					<div class="pc_top_first">
+						<div class="row clear_margin">
+							<h3 class="col-md-8">全部笔记本</h3>
+							<div class="row ">
+								<button style="margin: 0px 25px 1px 0px;" type="button" class="btn btn-default btn_plus" id='delete_notebook' ><i class="fa fa-minus"></i></button>
+								<button style="margin: 3px 0px 3px 6px;" type="button" class="btn btn-default btn_plus" id='add_notebook'><i class="fa fa-plus"></i></button>
+							</div>
+						</div>
+					</div>
+					<aside class="side-right" id='first_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body">
+									<ul class="contacts-list" id="notebooklist">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</aside>
 					<div class="row clear_margin">
-						<h3 class="col-md-9">全部笔记本</h3>
-						<div class="row ">
-							<button style="margin: 0px 3px 1px 0px;" type="button" class="btn btn-default btn_plus" id='delete_notebook' ><i class="fa fa-minus"></i></button>
-							<button style="margin: 3px 0px 3px 6px;" type="button" class="btn btn-default btn_plus" id='add_notebook'><i class="fa fa-plus"></i></button>
-						</div>
+						<div class="col-md-4 click" id='rollback_button' title='回收站'><i class='fa fa-trash-o' style='font-size:20px;line-height:31px;'></i></div>
+						<div class="col-md-4 click" id='like_button' title='收藏笔记本'><i class='fa fa-star' style='font-size:20px;line-height:31px;'></i></div>
+						<div class="col-md-4 click" id='action_button' title='参加活动笔记'><i class='fa fa-users' style='font-size:20px;line-height:30px;'></i></div>
 					</div>
 				</div>
-				<aside class="side-right" id='first_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body">
-								<ul class="contacts-list" id="notebooklist">
-								</ul>
-							</div>
-						</div>
+				<!-- 全部笔记本 -->
+				<!-- 全部笔记 -->
+				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding:0;' id='pc_part_2'>
+					<div class="pc_top_second" id='notebookId'>
+						<h3>全部笔记</h3>
+						<button type="button" class="btn btn-default btn-md btn_plus" id='add_note'><i class="fa fa-plus"></i></button>
 					</div>
-				</aside>
-				<div class="row clear_margin">
-					<div class="col-md-4 click" id='rollback_button' title='回收站'><i class='fa fa-trash-o' style='font-size:20px;line-height:31px;'></i></div>
-					<div class="col-md-4 click" id='like_button' title='收藏笔记本'><i class='fa fa-star' style='font-size:20px;line-height:31px;'></i></div>
-					<div class="col-md-4 click" id='action_button' title='参加活动笔记'><i class='fa fa-users' style='font-size:20px;line-height:30px;'></i></div>
-				</div>
-			</div>
-			<!-- 全部笔记本 -->
-			<!-- 全部笔记 -->
-			<div class="col-md-3" style='padding:0;' id='pc_part_2'>
-				<div class="pc_top_second" id='notebookId'>
-					<h3>全部笔记</h3>
-					<button type="button" class="btn btn-default btn-md btn_plus" id='add_note'><i class="fa fa-plus"></i></button>
-				</div>
-				<aside class="side-right" id='second_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body">
-								<ul class="contacts-list" id="notelist">
-								</ul>
-							</div>
-						</div>
-					</div>
-				</aside>
-			</div>
-			<!-- 全部笔记 -->
-			<!-- 回收站笔记 -->
-			<div class="col-md-3" style='padding:0;display:none;' id='pc_part_4'>
-				<div class="pc_top_second">
-					<h3>回收站笔记</h3>
-					<button type="button" class="btn btn-default btn-md btn_plus " id="join_action">一键清空回收站</button>
-				</div>
-				<aside class="side-right" id='four_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body">
-								<ul class="contacts-list" id="recyclelist"></ul>
-							</div>
-						</div>
-					</div>
-				</aside>
-			</div>
-			<!-- 回收站笔记 -->
-			<!-- 搜索笔记列表 -->
-			<div class="col-md-3" style='padding:0;display:none;' id='pc_part_6'>
-				<div class="pc_top_second">
-					<h3>搜索结果</h3>
-				</div>
-				<aside class="side-right" id='sixth_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body">
-								<ul class="contacts-list">
-								</ul>
-							</div>
-						</div>
-						<div id='more_note'>更多...</div>
-					</div>
-				</aside>
-			</div>
-			<!-- 搜索笔记列表 -->
-			<!-- 收藏笔记列表 -->
-			<div class="col-md-3" style='padding:0;display:none;' id='pc_part_7'>
-				<div class="pc_top_second">
-					<h3>已收藏笔记</h3>
-				</div>
-				<aside class="side-right" id='seventh_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body">
-								<ul class="contacts-list" id="favorList">
-									<!--li class="idle"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> switch多分支结构<button type="button" class="btn btn-default btn-md btn_position btn_delete"><i class="fa fa-times"></i></button></a></li-->
-								</ul>
-							</div>
-						</div>
-					</div>
-				</aside>
-			</div>
-			<!-- 收藏笔记列表 -->
-			<!-- 参加活动的笔记列表 -->
-			<div class="col-md-3" style='padding:0;display:none;' id='pc_part_8'>
-				<div class="pc_top_second">
-					<h3>参加活动的笔记</h3>
-				</div>
-				<aside class="side-right" id='eighth_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body">
-								<ul class="contacts-list">
-									<!--li class="offline"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> 样式用例（点击无效）</a></li-->
-								</ul>
-							</div>
-						</div>
-					</div>
-				</aside>
-			</div>
-			<!-- 参加活动的笔记列表 -->
-			<!-- 编辑笔记 -->
-			<div class="col-sm-7"  id='pc_part_3' style='padding:0;'>
-				<!-- side-right -->
-				<div class="pc_top_third">
-					<div class="row">
-						<div class="col-md-9">
-							<h3>编辑笔记</h3>
-						</div>
-						<div class="col-md-3">
-							<button type="button" class="btn btn-block btn-sm btn-primary" id='save_note'>保存笔记</button>
-						</div>
-					</div>
-				</div>
-				<aside class="side-right" id='third_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body clear_margin">
-								<!--- 笔记标题 --->
-								<div class="row" >
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="input_note_title" placeholder='笔记标题...'>
-									</div>
+					<aside class="side-right" id='second_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body">
+									<ul class="contacts-list" id="notelist">
+									</ul>
 								</div>
-								<!--- 笔记标题 --->
-								<div class="row">
-									<div class="col-sm-12">
-										<!--- 输入框 --->
-										<script type="text/plain" id="myEditor" style="width:100%;height:400px;">
-										</script>
-										<!--- 输入框 --->
+							</div>
+						</div>
+					</aside>
+				</div>
+				<!-- 全部笔记 -->
+				<!-- 回收站笔记 -->
+				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding:0;display:none;' id='pc_part_4'>
+					<div class="pc_top_second">
+						<h3>回收站笔记</h3>
+						<button type="button" class="btn btn-default btn-md btn_plus " id="join_action">清空回收站</button>
+					</div>
+					<aside class="side-right" id='four_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body">
+									<ul class="contacts-list" id="recyclelist"></ul>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+				<!-- 回收站笔记 -->
+				<!-- 搜索笔记列表 -->
+				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding:0;display:none;' id='pc_part_6'>
+					<div class="pc_top_second">
+						<h3>搜索结果</h3>
+					</div>
+					<aside class="side-right" id='sixth_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body">
+									<ul class="contacts-list">
+									</ul>
+								</div>
+							</div>
+							<div id='more_note'>更多...</div>
+						</div>
+					</aside>
+				</div>
+				<!-- 搜索笔记列表 -->
+				<!-- 收藏笔记列表 -->
+				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding:0;display:none;' id='pc_part_7'>
+					<div class="pc_top_second">
+						<h3>已收藏笔记</h3>
+					</div>
+					<aside class="side-right" id='seventh_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body">
+									<ul class="contacts-list" id="favorList">
+										<!--li class="idle"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> switch多分支结构<button type="button" class="btn btn-default btn-md btn_position btn_delete"><i class="fa fa-times"></i></button></a></li-->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+				<!-- 收藏笔记列表 -->
+				<!-- 参加活动的笔记列表 -->
+				<div class="col-md-2" style='margin:5px 10px 5px 0px;padding:0;display:none;' id='pc_part_8'>
+					<div class="pc_top_second">
+						<h3>参加活动的笔记</h3>
+					</div>
+					<aside class="side-right" id='eighth_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body">
+									<ul class="contacts-list">
+										<!--li class="offline"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> 样式用例（点击无效）</a></li-->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+				<!-- 参加活动的笔记列表 -->
+				<!-- 编辑笔记 -->
+				<div class="col-sm-7"  id='pc_part_3' style='margin:5px 0px 0px 0px;padding:0;'>
+					<!-- side-right -->
+					<div class="pc_top_third">
+						<div class="row">
+							<div class="col-md-9">
+								<h3>编辑笔记</h3>
+							</div>
+							<div class="col-md-3">
+								<button type="button" class="btn btn-block btn-sm btn-primary" id='save_note'>保存笔记</button>
+							</div>
+						</div>
+					</div>
+					<aside class="side-right" id='third_side_right'>
+						<div class="module" data-toggle="niceScroll">
+							<div class="chat-contact">
+								<div class="contact-body clear_margin">
+									<!--- 笔记标题 --->
+									<div class="row" >
+										<div class="col-md-8">
+											<input type="text" class="form-control" id="input_note_title" placeholder='笔记标题...'>
+										</div>
+									</div>
+									<!--- 笔记标题 --->
+									<div class="row">
+										<div class="col-sm-12">
+											<!--- 输入框 --->
+											<script type="text/plain" id="myEditor" style="width:100%;height:400px;">
+											</script>
+											<!--- 输入框 --->
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</aside>
-			</div>
-			<!-- 编辑笔记 -->
-			<!-- 预览笔记 -->
-			<div class="col-sm-7" id='pc_part_5' style='display:none;' >
-				<div class="pc_top_third">
-					<div class="row">
-						<div class="col-md-9">
-							<h3>预览笔记</h3>
-						</div>
-					</div>
+					</aside>
 				</div>
-				<aside class="side-right" id='fifth_side_right'>
-					<div class="module" data-toggle="niceScroll">
-						<div class="chat-contact">
-							<div class="contact-body clear_margin">
-								<h4 id="noput_note_title"></h4>
-								<p>
-								</p>
-							</div>
+				<!-- 编辑笔记 -->
+				<!-- 预览笔记 -->
+				<div class="col-sm-7" id='pc_part_5' style='display:block;' >
+
+					<aside style="background: none" class="side-right" id='fifth_side_right'>
+						<div class="jumbotron">
+							<h2 id="helloworld">下午好，ewoifuoi</h2>
+							<p>...</p>
+							<p><a class="btn btn-primary btn-lg" href="#" role="button" id="add_notebook2">新建笔记本</a></p>
 						</div>
-					</div>
-				</aside>
+
+					</aside>
+				</div>
+				<!-- 预览笔记 -->
 			</div>
-			<!-- 预览笔记 -->
+			<footer style='padding:0;margin:0px 30px 0px 30px;' >
+				<p>&copy; 2023 Stilearning</p>
+				<div style='position:absolute;top:5PX;height:30px;right:20px;line-height:26px;border:1px solid #0E7D76;display:none;background:#fff'>
+					<strong style='color:#0E7D76;margin:0 10px;'></strong>
+				</div>
+			</footer>
 		</div>
-		<footer style='width: 100%;padding:0;' >
-			<p>&copy; 2023 Stilearning</p>
-			<div style='position:absolute;top:5PX;height:30px;right:20px;line-height:26px;border:1px solid #0E7D76;display:none;background:#fff'>
-				<strong style='color:#0E7D76;margin:0 10px;'></strong>
-			</div>
-		</footer>
 
 		<script type="text/javascript" src="scripts/jquery.min.js"></script>
 
@@ -277,6 +270,10 @@
 				var notebookId = null;
 				// 添加笔记本按钮响应事件
 				$("#add_notebook").click(function(){
+					$(".opacity_bg").css("display","block");
+					$("#can").load("alert/alert_notebook.html");
+				});
+				$("#add_notebook2").click(function(){
 					$(".opacity_bg").css("display","block");
 					$("#can").load("alert/alert_notebook.html");
 				});
@@ -514,6 +511,29 @@
 					// 发送ajax请求，将返回的html代码显示到id是can的标签中
 					$("#can").load("alert/alert_clear_dustbin.html");
 				});
+				// 一键清空回收站按钮
+				$("#join_action").click(function () {
+					$('.opacity_bg').show(); // 遮罩层
+					// 发送ajax请求，将返回的html代码显示到id是can的标签中
+					$("#can").load("alert/alert_clear_dustbin.html");
+				});
+
+				// 清空回收站事件
+				$("#can").on("click","#clear_dustbin_btn",function () {
+					$.ajax({
+						url:'/cloudNote_war_exploded/clearDustbin',//请求的url
+						type:'POST',
+						data:{
+							uid:uid,
+						},
+						success:function(data){
+							loadRecycledList();
+						},
+						error:function(){
+							alert("清空回收站失败");
+						}
+					});
+				});
 
 				// 清空回收站事件
 				$("#can").on("click","#clear_dustbin_btn",function () {
@@ -619,6 +639,7 @@
 					// 查找祖先元素，并且是 li 标签的祖先
 					const $li = $("#favorList li .checked").parents("li")
 					const id = $li.attr("data-id")
+					console.log("id:",id)
 
 					$.ajax({
 						url:'/cloudNote_war_exploded/deletefavorNote',//请求的url
@@ -759,6 +780,7 @@
 					$("#pc_part_3").css("display","block");ifeditor = true;
 				}
 				if(ifeditor) {
+					$("#pc_part_5").css("display","none");
 					if(op==='notelist') {clear_all_4();}
 					if(op==='recyclelist') {
 						clear_all_4();
@@ -777,6 +799,7 @@
 					}
 				}
 				else {
+					$("#pc_part_5").css("display","block");
 					if(op==='notelist') {clear_all_4();}
 					if(op==='recyclelist') {
 						clear_all_4();

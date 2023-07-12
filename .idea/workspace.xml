@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -9,7 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02a3b16c-08e7-4ce7-9306-d5d9bb096eeb" name="Changes" comment="merged" />
+    <list default="true" id="fb6e6ae5-a4f8-44c2-b686-66a426c2f24b" name="Changes" comment="merged">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +25,7 @@
         <option value="JUnit3 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -61,6 +65,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -295,7 +300,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0bb65b82-15d5-43f1-857d-a7687ea1a825" name="Changes" comment="update" />
+      <changelist id="b1c8b850-41c8-46c8-a4ee-0e7b9d0444e0" name="Changes" comment="merged" />
       <created>1688706396014</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -309,7 +314,7 @@
       <workItem from="1689036757651" duration="1570000" />
       <workItem from="1689070755295" duration="6202000" />
       <workItem from="1689123753162" duration="1512000" />
-      <workItem from="1689161268014" duration="4892000" />
+      <workItem from="1689158175070" duration="4910000" />
     </task>
     <task id="LOCAL-00001" summary="删除了abcd====">
       <created>1688979378509</created>
@@ -326,11 +331,11 @@
       <updated>1689058610690</updated>
     </task>
     <task id="LOCAL-00003" summary="merged">
-      <created>1689138104646</created>
+      <created>1689147488697</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1689138104646</updated>
+      <updated>1689147488697</updated>
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
@@ -366,17 +371,6 @@
     <MESSAGE value="--update--" />
     <MESSAGE value="merged" />
     <option name="LAST_COMMIT_MESSAGE" value="merged" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/webapp/edit.html</url>
-          <line>44</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
