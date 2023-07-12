@@ -493,6 +493,7 @@
 						type:'get', //请求方式，GET或POST
 						success:function(res){
 							console.log(res);
+							getNoteList(currentNoteBookId);
 						},
 						error:function(){console.log('错误！！');}
 					})
@@ -521,6 +522,7 @@
 							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>";
 							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>";
 							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>";
+							lis +="<dt><button type=\"button\" style=\"margin-left: 8px\" class=\"btn btn-default btn-xs btn_favorite\" title='收藏'><i class=\"fa fa-heart\"></i></button></dt>";
 							lis+="</dl>";
 							lis+="</div>";
 							lis+="</li>";
@@ -637,8 +639,8 @@
 			var um = UM.getEditor('myEditor');
 
 			//创建一个全局变量存储当前的笔记ID（悲...）
-			var currentNoteId='';
-			var currentNoteBookId='';
+			let currentNoteId='';
+			let currentNoteBookId='';
 		</script>
 
 	</body>
