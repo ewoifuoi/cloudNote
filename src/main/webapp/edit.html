@@ -149,7 +149,7 @@
 					<div class="module" data-toggle="niceScroll">
 						<div class="chat-contact">
 							<div class="contact-body">
-								<ul class="contacts-list">
+								<ul class="contacts-list" id="favorlist">
 									<!--li class="idle"><a ><i class="fa fa-file-text-o" title="online" rel="tooltip-bottom"></i> switch多分支结构<button type="button" class="btn btn-default btn-xs btn_position btn_delete"><i class="fa fa-times"></i></button></a></li-->
 								</ul>
 							</div>
@@ -265,9 +265,21 @@
 					$("#can").load("alert/alert_notebook.html");
 				});
 
+				// 删除笔记本按钮响应事件
+				$("#delete_notebook").click(function(){
+					const $a = $("#notebooklist li .checked");
+					// 当 .length 属性是0时，表示没有选中记事本；如果是1，表示选中一个记事本
+					if ($a.length == 0) {
+						alert("请先选中记事本！");
+						return;
+					}
+					$(".opacity_bg").css("display","block");
+					$("#can").load("alert/alert_delete_notebook.html");
+				});
+
 				// 添加笔记本事件
 				$("#can").on("click","#add_notebook_button",function(){
-					alert("test");
+
 					let userid = sessionStorage.getItem("userId");
 					let bookname=$("#input_notebook").val();
 					$.ajax({
@@ -285,6 +297,31 @@
 							alert("创建笔记本失败");
 						}
 					});
+				});
+
+				// 删除笔记本事件
+				$("#can").on("click", "#delete_notebook_button", function () {
+					let notebookId = $("#notebooklist li .checked").parent().attr("data-id");
+					let userid = sessionStorage.getItem("userId");
+
+					$.ajax({
+						url: '/cloudNote_war_exploded/deleteNotebook', // 请求的url
+						type: 'POST', // 请求方式，GET或POST
+						data: { // 发送服务器的数据String notebookid, String noteName, String userid
+							id: notebookId
+						},
+						success: function (data) {
+
+							loadNotebookByUser(userid);
+							getNoteList(notebookId);
+							alert("删除笔记本成功");
+						},
+						error: function () { // statusCode是2xx 或 304 以外的值时，执行该函数
+							alert("删除笔记本失败");
+						}
+
+					});
+
 				});
 
 
@@ -382,7 +419,7 @@
 					console.log("id:",id)
 
 					$.ajax({
-						url:'/cloudNote_war_exploded/deleteNote',//请求的url
+						url:'/cloudNote_war_exploded/recycleNote',//请求的url
 						type:'POST',
 						data:{
 							id:id,
@@ -398,7 +435,6 @@
 						},
 						error:function(){
 							alert("删除笔记失败");
-
 						}
 					});
 				});
@@ -408,6 +444,81 @@
 					$(".opacity_bg").css("display","none");
 					$("#can").html("");
 				});
+
+				//点击收藏笔记按钮
+				$("#notelist").on("click",".btn_favorite",function () {
+					// 弹出确认收藏对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_like.html")
+				});
+
+				//点击收藏笔记确认对话框按钮
+				$("#can").on("click","#favor_note_btn",function () {
+
+					// 查找祖先元素，并且是 li 标签的祖先
+					const $li = $("#notelist li .checked").parents("li")
+					const id = $li.attr("data-id")
+					console.log("id:",id)
+
+					$.ajax({
+						url:'/cloudNote_war_exploded/favorNote',//请求的url
+						type:'POST',
+						data:{
+							id:id,
+						},
+						success:function(data){
+							console.log(data);
+
+							if(data.status == 0){
+								$li.remove();
+
+							}
+							getNoteList(currentNoteBookId);
+						},
+						error:function(){
+							console.log("error")
+						}
+					});
+				});
+
+				//点击取消收藏笔记按钮
+				$("#favorlist").on("click",".btn_delete_favor",function () {
+					// 弹出确认取消收藏对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_delete_like.html")
+				});
+
+				//点击取消收藏笔记确认对话框按钮
+				$("#can").on("click","#delete_favor_btn",function () {
+
+					// 查找祖先元素，并且是 li 标签的祖先
+					const $li = $("#notelist li .checked").parents("li")
+					const id = $li.attr("data-id")
+					console.log("id:",id)
+
+					$.ajax({
+						url:'/cloudNote_war_exploded/deletefavorNote',//请求的url
+						type:'POST',
+						data:{
+							id:id,
+						},
+						success:function(data){
+							console.log(data);
+
+							if(data.status == 0){
+								$li.remove();
+
+							}
+							loadFavorList();
+						},
+						error:function(){
+							console.log("error")
+						}
+					});
+				});
+
 
 				// 笔记被点击事件
 				$("#notelist").on("click","li",function(){
@@ -420,8 +531,6 @@
 					getNote(noteId);
 				})
 
-
-
 				// 回收站展开按钮被点击事件
 				let dustbinf = 0;
 				$("#rollback_button").click(function (){
@@ -429,6 +538,7 @@
 						$("#pc_part_4").css("display","block"); //展示回收站模块
 						$("#pc_part_2").css("display","none");  //隐藏笔记列表
 						$("#rollback_button").css("background","#8d5e5b");
+						loadRecycledList();
 						dustbinf = 1;
 					}
 					else {
@@ -448,6 +558,7 @@
 						$("#pc_part_7").css("display","block"); //展示回收站模块
 						$("#pc_part_2").css("display","none");  //隐藏笔记列表
 						$("#like_button").css("background","#8d5e5b");
+						loadFavorList();
 						likef = 1;
 					}
 					else {
@@ -496,6 +607,7 @@
 						type:'get', //请求方式，GET或POST
 						success:function(res){
 							console.log(res);
+							alert("保存成功");
 							getNoteList(currentNoteBookId);
 						},
 						error:function(){console.log('错误！！');}
@@ -525,7 +637,7 @@
 							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_move\" title='移动至...'><i class=\"fa fa-random\"></i></button></dt>";
 							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_share\" title='分享'><i class=\"fa fa-sitemap\"></i></button></dt>";
 							lis+="<dt><button type=\"button\" class=\"btn btn-default btn-xs btn_delete\" title='删除'><i class=\"fa fa-times\"></i></button></dt>";
-							lis +="<dt><button type=\"button\" style=\"margin-left: 8px\" class=\"btn btn-default btn-xs btn_favorite\" title='收藏'><i class=\"fa fa-heart\"></i></button></dt>";
+							lis+="<dt><button type=\"button\" style=\"margin-left: 8px\" class=\"btn btn-default btn-xs btn_favorite\" title='收藏'><i class=\"fa fa-heart\"></i></button></dt>";
 							lis+="</dl>";
 							lis+="</div>";
 							lis+="</li>";
@@ -575,6 +687,7 @@
 					data:{"uid":uid},
 					type:"get",
 					success:function (res){
+						$("#notebooklist").empty();
 						var lis="";
 						for(let item of res.data){
 							lis+= '<li class="online" data-id="'+item.cn_notebook_id+'"><a><i class="fa fa-book" title="online" rel="tooltip-bottom"></i>'+item.cn_notebook_name+'</a></li>'
@@ -583,6 +696,52 @@
 					},
 					error:function (){
 						alert("无法加载笔记本列表");
+					}
+				});
+			}
+
+			function loadRecycledList() {
+				var uid = getCookie("userId");
+				$("#recyclelist").empty();
+				$.ajax({
+					url:"/cloudNote_war_exploded/getRecycledNotes",
+					data:{"uid":uid},
+					type:"post",
+					success:function (res){
+						var lis="";
+						for(let item of res.data){
+							lis += "<li class=\"disable\"><a><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>";
+							lis += item.cn_note_title;
+							lis += "<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_delete\"><i class=\"fa fa-times\"></i></button><button type=\"button\" class=\"btn btn-default btn-xs btn_position_2 btn_replay\"><i class=\"fa fa-reply\"></i></button></a></li>";
+						}
+						$("#recyclelist").append(lis);
+					},
+					error:function (){
+						alert("无法加载回收站列表");
+					}
+				});
+			}
+
+			//加载收藏笔记列表
+			function loadFavorList(){
+				var uid = getCookie("userId");
+				$("#favorlist").empty();
+				$.ajax({
+					url:"/cloudNote_war_exploded/getFavorNotes",
+					data:{uid:uid},
+					type:"post",
+					success:function (res){
+						console.log(res);
+						var lis="";
+						for ( let item of res.data) {
+							lis += "<li class=\"idle\"><a ><i class=\"fa fa-file-text-o\" title=\"online\" rel=\"tooltip-bottom\"></i>"
+							lis += item.cn_note_title;
+							lis += "<button type=\"button\" class=\"btn btn-default btn-xs btn_position btn_delete\" id='btn_delete_favor'><i class=\"fa fa-times\"></i></button></a></li>";
+						}
+						$("#favorlist").append(lis);
+					},
+					error:function (){
+						alert("无法加载收藏列表");
 					}
 				});
 			}

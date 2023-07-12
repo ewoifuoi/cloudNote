@@ -76,5 +76,26 @@ public class NoteBookServiceImpl implements NoteBookService {
         return true;
     }
 
+    @Override
+    public Boolean favorNote(String id){
+        System.out.println("服务层数据："+id);
+        Boolean b = mapper.favorNote(id);
+        System.out.println("服务层确认："+b);
+        return b;
+    }
+
+    @Override
+    public List<Note> getFavorNotes(String id){
+        System.out.println("id="+id);
+        List<Note> list = mapper.getFavorNotes(id);
+        System.out.println("服务层数据："+list);
+        return list;
+    }
+
+    @Override
+    public Boolean deleteFavorNote(String id){
+        return mapper.deleteFavorNote(id);
+    }
+
 
 }

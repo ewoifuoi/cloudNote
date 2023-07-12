@@ -65,4 +65,25 @@ public class NoteBookServiceImplTest extends TestCase {
         Boolean b = service.save_note("0ca3e5e1-af32-4d0c-8014-fce69f59ff05","离谱啊哦","确实");
         System.out.println(b);
     }
+
+    public void testFavorNote() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+        Boolean b = service.favorNote("5ba9813a-bbf9-472e-9d88-9dc79e9e74c2");
+        System.out.println(b);
+    }
+
+    public void testGetFavorNotes() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+        List<Note> list = service.getFavorNotes("058048f8-3f26-464a-a350-bf111d535136");
+        System.out.println("测试数据："+list);
+    }
+
+    public void testDeleteFavorNote() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+        Boolean b = service.deleteFavorNote("5ba9813a-bbf9-472e-9d88-9dc79e9e74c2");
+        System.out.println(b);
+    }
 }

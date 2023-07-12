@@ -26,4 +26,10 @@ public interface NoteBookService {
     List<Note> getRecycledNotes(String id);
 
     Boolean deleteNotebook(String id);
+
+    Boolean favorNote(String id);
+
+    List<Note> getFavorNotes(String id);
+
+    Boolean deleteFavorNote(String id);
 }

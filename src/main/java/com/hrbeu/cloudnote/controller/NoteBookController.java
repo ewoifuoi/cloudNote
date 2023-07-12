@@ -80,6 +80,28 @@ public class NoteBookController {
         return result;
     }
 
+    @PostMapping("/favorNote")
+    public NoteResult favorNote(String id){
+        service.favorNote(id);
+        NoteResult result = new NoteResult();
+        return result;
+    }
+
+    @PostMapping("/getFavorNotes")
+    public NoteResult getFavorNotes(String uid){
+        System.out.println("控制层id："+uid);
+        List<Note> list = service.getFavorNotes(uid);
+        NoteResult result = new NoteResult(9,"",list);
+        return  result;
+    }
+
+    @PostMapping("/deletefavorNote")
+    public  NoteResult deleteFavorNote(String id){
+        service.deleteFavorNote(id);
+        NoteResult result = new NoteResult();
+        return  result;
+    }
+
     @PostMapping("/deleteNote")
     public NoteResult deleteNote(String id) {
         service.deleteNote(id);
