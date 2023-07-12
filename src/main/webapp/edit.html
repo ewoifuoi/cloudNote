@@ -655,7 +655,7 @@
 				$("#notelist").on("click","li",function(){
 					$("#notelist li a").removeClass("checked");
 					$(this).find("a").addClass("checked");
-					show('show_editor');
+					show('editor');
 					var noteId = $(this).attr("data-id");
 					currentNoteId = noteId;
 					console.log("noteId:",noteId);
@@ -663,23 +663,10 @@
 				})
 
 				// 回收站展开按钮被点击事件
-				let dustbinf = 0;
 				$("#rollback_button").click(function (){
-					if(!dustbinf) {
-						$("#pc_part_4").css("display","block"); //展示回收站模块
-						$("#pc_part_2").css("display","none");  //隐藏笔记列表
-						$("#rollback_button").css("background","#8d5e5b");
-						loadRecycledList();
-						dustbinf = 1;
-					}
-					else {
-						$("#pc_part_4").css("display","none");
-						$("#rollback_button").css("background","");
-						dustbinf = 0;
-					}
-					if((actionf&&dustbinf)||(actionf&&likef)||(likef&&dustbinf)) $("#pc_part_3").css("display","none");
-					else $("#pc_part_3").css("display","block");
-					if(!actionf&&!dustbinf&&!likef) $("#pc_part_2").css("display","block");
+					show('recyclelist');
+					loadRecycledList();
+
 				});
 
 				// 收藏列表展开按钮被点击事件
@@ -747,33 +734,46 @@
 			});
 
 			// 用于四个侧栏和编辑器的显示
+			let ifeditor = false;let ifdustbin=false;let ifnotelist=false;
 			function show(op) {
-
-				switch (op){
-					case 'show_editor':{
-						$("#pc_part_3").css("display","block");
-						break;
-					}
-					case 'close_editor':{
-						$("#pc_part_3").css("display","none");
-						break;
-					}
-					case 'notelist':{
-						break;
-					}
-					case 'recyclelist':{
-						break;
-					}
-					case 'favorlist':{
-						break;
-					}
+				if(op==='editor') {
+					$("#pc_part_3").css("display","block");ifeditor = true;
 				}
-
+				if(ifeditor) {
+					if(op==='notelist') {clear_all_4();}
+					if(op==='recyclelist') {
+						clear_all_4();
+						if(!ifdustbin) {$("#rollback_button").css("background","#8d5e5b");$("#pc_part_4").css("display","block");ifdustbin = true;}
+						else {$("#rollback_button").css("background","");$("#pc_part_4").css("display","none");$("#pc_part_2").css("display","block");ifdustbin = false;}
+					}
+					if(op==='favorlist') {clear_all_4();}
+					if(op==='sharelist') {clear_all_4();}
+				}
+				else {
+					if(op==='notelist') {clear_all_4();}
+					if(op==='recyclelist') {
+						clear_all_4();
+						if(!ifdustbin) {$("#rollback_button").css("background","#8d5e5b");$("#pc_part_4").css("display","block");ifdustbin = true;}
+						else {$("#rollback_button").css("background","");$("#pc_part_4").css("display","none");ifdustbin = false;}
+					}
+					if(op==='notelist') {clear_all_4();}
+					if(op==='notelist') {clear_all_4();}
+				}
 
 				set_height();
 				let width=$('#third_side_right').width()-35;
 				$('.edui-container,.edui-editor-body').width(width);
 				$('#myEditor').width(width-20);
+			}
+
+			function clear_all_4() {
+				$("#pc_part_4").css("display","none");
+				$("#rollback_button").css("background","");
+				$("#pc_part_7").css("display","none");
+				$("#like_button").css("background","");
+				$("#pc_part_8").css("display","none");
+				$("#action_button").css("background","");
+				$("#pc_part_2").css("display","none");
 			}
 
 			// 取消所有选中
@@ -797,8 +797,6 @@
 					$("#pc_part_2").css("display","none");
 				}
 			}
-
-
 
 			// 根据笔记本 id 查询所有笔记
 			function getNoteList(notebookId) {
