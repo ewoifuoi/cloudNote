@@ -34,4 +34,6 @@ public interface NoteBookService {
     Boolean deleteFavorNote(String id);
 
     Boolean moveNote(String noteid, String target);
+
+    Boolean clearDustbin(String uid);
 }
