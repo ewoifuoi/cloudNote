@@ -9,17 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16f9cb17-c49e-4308-b207-56fa17e4dfa8" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/NoteBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/NoteBookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_like.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_delete_like.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/alert/alert_like.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alert/alert_like.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hrbeu/cloudnote/service/NoteBookServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hrbeu/cloudnote/service/NoteBookServiceImplTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="16f9cb17-c49e-4308-b207-56fa17e4dfa8" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
