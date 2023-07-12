@@ -108,7 +108,7 @@
 			<!-- 全部笔记 -->
 			<!-- 回收站笔记 -->
 			<div class="col-xs-3" style='padding:0;display:none;' id='pc_part_4'>
-				<div class="pc_top_second" id='notebookId'>
+				<div class="pc_top_second">
 					<h3>回收站笔记</h3>
 					<button type="button" class="btn btn-default btn-xs btn_plus " id="join_action">一键清空回收站</button>
 				</div>
@@ -466,7 +466,7 @@
 				$("#can").on("click","#replay_button",function () {
 
 					let notebookid = $("#replaySelect").val();
-					console.log(notebookid);
+					console.log("notebookid="+notebookid);
 					const $li = $("#recyclelist li .checked").parents("li");
 					const id = $li.attr("data-id");
 
@@ -546,7 +546,7 @@
 				});
 
 				// 关闭模态框
-				$("#can").on("click",".close,.cancle,.sure",function(){ // 关闭笔记本弹出锁屏对话框
+				$("#can").on("click",".close,.cancle,.sure,.move",function(){ // 关闭笔记本弹出锁屏对话框
 					$(".opacity_bg").css("display","none");
 					$("#can").html("");
 				});
@@ -632,7 +632,6 @@
 					currentNoteId = noteId;
 					getNote(noteId);
 				})
-
 
 				// 笔记被点击事件
 				$("#notelist").on("click","li",function(){
@@ -732,6 +731,49 @@
 						error:function(){console.log('错误！！');}
 					})
 				})
+
+				//点击移动笔记按钮
+				$("#notelist").on("click",".btn_move",function () {
+					// 弹出确认收藏对话框
+					$('.opacity_bg').show();// 遮罩层
+					// 发送ajax请求，将返回的html代码显示到  id 是 can的标签中
+					$("#can").load("alert/alert_move.html");
+					getNoteBookList("#MoveSelect");
+				});
+
+				//移动笔记事件
+				$("#can").on("click","#move_button",function () {
+					Movenotebookid = $("MoveSelect").val();
+					console.log(Movenotebookid);
+					const $li = $("#notelist li .checked").parents("li");
+					const id = $li.attr("data-id");
+					console.log("笔记id="+id);
+					/*$.ajax({
+						url:'/cloudNote_war_exploded/moveNote',//请求的url
+						method:'post',
+						data:{
+							noteid:id,
+							target: notebookid,
+						},
+						success:function(data){
+							console.log(data);
+
+							if(data.status == 0){
+								$li.remove();
+
+							}
+							getNoteList(currentNoteBookId);
+						},
+						error:function(){
+							alert("移动笔记失败");
+						}
+					});*/
+
+				})
+
+
+
+
 			});
 
 
@@ -831,6 +873,7 @@
 							lis += "<option value=\""+ item.cn_notebook_id +"\">"+ item.cn_notebook_name +"</option>";
 						}
 						$(container).append(lis);
+						console.log(lis);
 					},
 					error:function (){
 						alert("无法加载笔记本列表");
@@ -940,6 +983,7 @@
 			//创建一个全局变量存储当前的笔记ID（悲...）
 			let currentNoteId='';
 			let currentNoteBookId='';
+			let Movenotebookid='';
 		</script>
 
 	</body>
