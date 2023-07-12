@@ -670,42 +670,14 @@
 				});
 
 				// 收藏列表展开按钮被点击事件
-				let likef = 0;
 				$("#like_button").click(function (){
-					if(!likef) {
-						$("#pc_part_7").css("display","block"); //展示回收站模块
-						$("#pc_part_2").css("display","none");  //隐藏笔记列表
-						$("#like_button").css("background","#8d5e5b");
-						loadFavorList();
-						likef = 1;
-					}
-					else {
-						$("#pc_part_7").css("display","none");
-						$("#like_button").css("background","");
-						likef = 0;
-					}
-					if((actionf&&dustbinf)||(actionf&&likef)||(likef&&dustbinf)) $("#pc_part_3").css("display","none");
-					else $("#pc_part_3").css("display","block");
-					if(!actionf&&!dustbinf&&!likef) $("#pc_part_2").css("display","block");
+					show('favorlist');
+					loadFavorList();
 				});
 
 				// 活动笔记展开按钮被点击事件
-				let actionf = 0;
 				$("#action_button").click(function (){
-					if(!actionf) {
-						$("#pc_part_8").css("display","block"); //展示回收站模块
-						$("#pc_part_2").css("display","none");  //隐藏笔记列表
-						$("#action_button").css("background","#8d5e5b");
-						actionf = 1;
-					}
-					else {
-						$("#pc_part_8").css("display","none");
-						$("#action_button").css("background","");
-						actionf = 0;
-					}
-					if((actionf&&dustbinf)||(actionf&&likef)||(likef&&dustbinf)) $("#pc_part_3").css("display","none");
-					else $("#pc_part_3").css("display","block");
-					if(!actionf&&!dustbinf&&!likef) $("#pc_part_2").css("display","block");
+					show('sharelist');
 				});
 
 				// 笔记保存按钮点击事件
@@ -734,7 +706,7 @@
 			});
 
 			// 用于四个侧栏和编辑器的显示
-			let ifeditor = false;let ifdustbin=false;let ifnotelist=false;
+			let ifeditor = false;let ifdustbin=false;let ifnotelist=false;let iffavor=false;let ifshare=false;
 			function show(op) {
 				if(op==='editor') {
 					$("#pc_part_3").css("display","block");ifeditor = true;
@@ -746,8 +718,16 @@
 						if(!ifdustbin) {$("#rollback_button").css("background","#8d5e5b");$("#pc_part_4").css("display","block");ifdustbin = true;}
 						else {$("#rollback_button").css("background","");$("#pc_part_4").css("display","none");$("#pc_part_2").css("display","block");ifdustbin = false;}
 					}
-					if(op==='favorlist') {clear_all_4();}
-					if(op==='sharelist') {clear_all_4();}
+					if(op==='favorlist') {
+						clear_all_4();
+						if(!iffavor) {$("#like_button").css("background","#8d5e5b");$("#pc_part_7").css("display","block");iffavor = true;}
+						else {$("#like_button").css("background","");$("#pc_part_7").css("display","none");$("#pc_part_2").css("display","block");iffavor = false;}
+					}
+					if(op==='sharelist') {
+						clear_all_4();
+						if(!ifshare) {$("#action_button").css("background","#8d5e5b");$("#pc_part_8").css("display","block");ifshare = true;}
+						else {$("#action_button").css("background","");$("#pc_part_8").css("display","none");$("#pc_part_2").css("display","block");ifshare = false;}
+					}
 				}
 				else {
 					if(op==='notelist') {clear_all_4();}
@@ -756,8 +736,16 @@
 						if(!ifdustbin) {$("#rollback_button").css("background","#8d5e5b");$("#pc_part_4").css("display","block");ifdustbin = true;}
 						else {$("#rollback_button").css("background","");$("#pc_part_4").css("display","none");ifdustbin = false;}
 					}
-					if(op==='notelist') {clear_all_4();}
-					if(op==='notelist') {clear_all_4();}
+					if(op==='favorlist') {
+						clear_all_4();
+						if(!iffavor) {$("#like_button").css("background","#8d5e5b");$("#pc_part_7").css("display","block");iffavor = true;}
+						else {$("#like_button").css("background","");$("#pc_part_7").css("display","none");iffavor = false;}
+					}
+					if(op==='sharelist') {
+						clear_all_4();
+						if(!ifshare) {$("#action_button").css("background","#8d5e5b");$("#pc_part_8").css("display","block");ifshare = true;}
+						else {$("#action_button").css("background","");$("#pc_part_8").css("display","none");ifshare = false;}
+					}
 				}
 
 				set_height();
