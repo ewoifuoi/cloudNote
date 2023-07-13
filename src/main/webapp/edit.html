@@ -303,6 +303,21 @@
 
 
 				var notebookId = null;
+
+				//笔记本双击事件（重命名）
+				$("#notebooklist").on("dblclick","li",function () {
+					// 处理双击事件
+					$(".opacity_bg").css("display","block");
+					console.log("双击成功")
+					$("#can").load("alert/alert_rename.html");
+				});
+
+				//重命名事件
+				$("#can").on("click", "#rename_notebook_btn", function () {
+					var data = $('#rename_notebook_input').val();
+					console.log(data);
+				})
+
 				// 添加笔记本按钮响应事件
 				$("#add_notebook").click(function(){
 					$(".opacity_bg").css("display","block");
@@ -382,20 +397,6 @@
 					open_notelist(true);
 					getNoteList(notebookId);
 				});
-
-				//笔记本双击事件（重命名）
-				$("#notebooklist").on("dblclick","li",function () {
-					// 处理双击事件
-					$(".opacity_bg").css("display","block");
-					console.log("双击成功")
-					$("#can").load("alert/alert_rename.html");
-				});
-
-				//重命名事件
-				$("#can").on("click", "#rename_notebook_btn", function () {
-					var data = $('#rename_notebook_input');
-					console.log(data);
-				})
 
 				// 添加笔记按钮响应事件
 				$("#add_note").click(function () {
