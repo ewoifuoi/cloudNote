@@ -37,6 +37,8 @@
   - 取消收藏
 - 模块六 : 日志系统
 
+![QQ截图20230713124153](https://github.com/ewoifuoi/cloudNote/assets/47176322/6993ae59-e35c-4c9e-8cf5-173fd7a6c75e)
+
 ![image](https://github.com/ewoifuoi/cloudNote/assets/47176322/ca6ec950-3088-496d-a399-8b8e42bf14bd)
 
 
