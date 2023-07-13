@@ -170,6 +170,7 @@ public class NoteBookController {
         return service.getUserName(uid);
     }
 
+    @Log(value = "重命名笔记本")
     @PostMapping("/renameNoteBook")
     public Boolean renameNoteBook(String note_rename,String bookid){
         return service.renameNoteBook(note_rename,bookid);
