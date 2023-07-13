@@ -21,33 +21,30 @@ import java.util.Date;
 
 @Aspect
 @Component
-public class LogAscpect {
+public class LogAspect {
     @Autowired
     private ISysLogService logService;
 
-
     //定义切点 @Pointcut
-    //在注解的位置切入代码
     @Pointcut("@annotation( com.hrbeu.cloudnote.aspect.Log)")
-    public void logPoinCut() {
-
-    }
+    public void logPointCut() {}
 
     //切面 配置通知
-    @AfterReturning("logPoinCut()")
+    @AfterReturning("logPointCut()")
     public void savaLog(JoinPoint joinpoin){
 
         SysLog sysLog = new SysLog();
 
-        //从切面织入点处通过反射机制获取织入点处的方法
+        //从切面织入点处通过反射机制获取织入点处的方法 (控制器方法)
         MethodSignature signature = (MethodSignature) joinpoin.getSignature();
         //获取切入点所在的方法
         Method method = signature.getMethod();
+        // 获取java注解
         Log Log = method.getAnnotation(Log.class);
 
         if(Log != null){
             String value  = Log.value();
-            sysLog.setOperation(value);
+            sysLog.setOperation(value); // 日志文件中记录的内容
         }
 
         //获取请求的类名

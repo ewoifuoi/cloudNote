@@ -6,14 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/**
- * @ClassName IpUtils
- * @Description  获取用户的真实ip
- * @Author xiongchao
- * @Date 2020/9/27 10:08
- **/
 public class IpUtils {
 
+    // 获取 真实ip地址
     public static String getRealIp(HttpServletRequest request) {
         String ipAddress = request.getHeader("x-forwarded-for");
         if(ipAddress == null || ipAddress.length() ==0 || "unknown".equals(ipAddress)){
