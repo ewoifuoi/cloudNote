@@ -376,14 +376,26 @@
 				$("#notebooklist").on("click","li",function () {
 					$("#notebooklist li a").removeClass("checked");
 					$(this).find("a").addClass("checked");
-
-					notebookId = $(this).attr("data-id");
 					var notebookId = $(this).attr("data-id");
 					currentNoteBookId = notebookId;
 					console.log("notebookId:",notebookId);
 					open_notelist(true);
 					getNoteList(notebookId);
 				});
+
+				//笔记本双击事件（重命名）
+				$("#notebooklist").on("dblclick","li",function () {
+					// 处理双击事件
+					$(".opacity_bg").css("display","block");
+					console.log("双击成功")
+					$("#can").load("alert/alert_rename.html");
+				});
+
+				//重命名事件
+				$("#can").on("click", "#rename_notebook_btn", function () {
+					var data = $('#rename_notebook_input');
+					console.log(data);
+				})
 
 				// 添加笔记按钮响应事件
 				$("#add_note").click(function () {
@@ -636,7 +648,7 @@
 				});
 
 				// 关闭模态框
-				$("#can").on("click",".close,.cancle,.sure,.move",function(){ // 关闭笔记本弹出锁屏对话框
+				$("#can").on("click",".close,.cancle,.sure,.move,.rename",function(){ // 关闭笔记本弹出锁屏对话框
 					$(".opacity_bg").css("display","none");
 					$("#can").html("");
 				});
@@ -781,11 +793,6 @@
 						error:function(){console.log('错误！！');}
 					})
 				})
-
-
-
-
-
 
 			});
 
@@ -1019,6 +1026,11 @@
 						alert("无法加载收藏列表");
 					}
 				});
+			}
+
+			//重命名笔记本
+			function reNameNotebook(notebookId){
+
 			}
 
 			//加载DOM之后处理页面高度
