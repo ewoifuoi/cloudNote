@@ -18,6 +18,13 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.8</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <!--Junit-->
         <dependency>
             <groupId>junit</groupId>

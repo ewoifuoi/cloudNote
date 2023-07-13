@@ -11,7 +11,7 @@ import java.util.List;
 @Service("NoteBookServiceImpl")
 public class NoteBookServiceImpl implements NoteBookService {
     @Autowired
-    NotebookMapper mapper;
+    private NotebookMapper mapper;
 
     @Override
     public List<Notebook> getAllNotebook(){
