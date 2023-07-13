@@ -25,6 +25,8 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    @Log(value = "用户注册")
     @PostMapping("/register")
     public NoteResult Register(String regist_username, String nickname, String regist_password) throws NoSuchAlgorithmException {
 
@@ -57,11 +59,13 @@ public class UserController {
         }
     }
 
+
     @PostMapping("/getPswByuserid")
     public boolean getPswByuserid(String uid, String last_password) throws NoSuchAlgorithmException {
         return service.getPswByuserid(uid, last_password);
     }
 
+    @Log(value = "用户修改密码")
     @PostMapping("/changePwd")
     public boolean changePwd(String uid, String new_password){
         return service.ChangePassword(uid, new_password);

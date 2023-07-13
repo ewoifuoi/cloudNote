@@ -66,7 +66,9 @@ public class LogAscpect {
         //请求参数
         Object args [] = joinpoin.getArgs();
         String param = JSON.toJSONString(args);
-        sysLog.setParamName(param.substring(0,100));
+        if(param.length() > 100) sysLog.setParamName(param.substring(0,100));
+        else sysLog.setParamName(param);
+
         sysLog.setCreateTime(new Timestamp(new Date().getTime()));
         logService.save(sysLog);
     }
