@@ -10,7 +10,7 @@ $(document).ready(function () {
             data:{"regist_username":name,"regist_password":pwd},
             type:"post",
             success:function (res){
-                alert(res.code +"   ==  "+res.msg);
+                alert("登录成功");
                 let user = res.data;
                 window.location.href="edit.html";
                 localStorage.setItem("loginstatus","1");
