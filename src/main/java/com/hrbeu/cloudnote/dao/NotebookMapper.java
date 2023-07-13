@@ -69,4 +69,7 @@ public interface NotebookMapper {
 
     @Select("select cn_user_nick from cn_user where cn_user_id=#{uid};")
     public String getUserName(String uid);
+
+    @Update("Update cn_notebook set cn_notebook_name=#{new_name} where cn_notebook_id=#{bookid};")
+    Boolean renameNoteBook(@Param("new_name") String new_name,@Param("bookid") String bookid);
 }

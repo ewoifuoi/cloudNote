@@ -93,4 +93,11 @@ public class NoteBookServiceImplTest extends TestCase {
         String b = service.getUserName("");
         System.out.println(b);
     }
+
+    public void testRenameNoteBook() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        NoteBookService service =(NoteBookService) context.getBean("NoteBookServiceImpl");
+        Boolean b = service.renameNoteBook("测试修改","f1da0ded-fa51-4ff0-8b78-3c9c05e3c32e");
+        System.out.println(b);
+    }
 }

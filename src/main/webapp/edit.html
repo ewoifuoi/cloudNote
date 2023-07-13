@@ -314,8 +314,19 @@
 
 				//重命名事件
 				$("#can").on("click", "#rename_notebook_btn", function () {
-					var data = $('#rename_notebook_input').val();
-					console.log(data);
+					var new_name = $('#input_notebook_rename').val();
+					$.ajax({
+						url:"/cloudNote_war_exploded/renameNoteBook",
+						type:"post",
+						data:{note_rename:new_name,bookid:currentNoteBookId},
+						success:function (){
+							loadNotebookByUser(uid);
+							alert("重命名成功");
+						},
+						error() {
+							alert("重命名失败");
+						}
+					});
 				})
 
 				// 添加笔记本按钮响应事件

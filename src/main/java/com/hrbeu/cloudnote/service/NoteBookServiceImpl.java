@@ -119,5 +119,8 @@ public class NoteBookServiceImpl implements NoteBookService {
         return mapper.getUserName(uid);
     }
 
+    @Override
+    public Boolean renameNoteBook(String new_name,String bookid){return mapper.renameNoteBook(new_name,bookid);}
+
 
 }

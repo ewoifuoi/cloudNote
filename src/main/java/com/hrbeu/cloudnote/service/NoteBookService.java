@@ -38,4 +38,6 @@ public interface NoteBookService {
     Boolean clearDustbin(String uid);
 
     String getUserName(String uid);
+
+    Boolean renameNoteBook(String new_name, String bookid);
 }
