@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="cloudNote:war" />
       <artifact name="cloudNote:war exploded" />
     </artifacts-to-build>
   </component>
@@ -9,9 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2755dfb6-832d-4a0a-8c70-5c267e534682" name="Changes" comment="merged">
+    <list default="true" id="097a65fc-d4a7-4b18-b123-6d378800af94" name="Changes" comment="merged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/NotebookMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,10 +109,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.64">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="NoteBookServiceImplTest.testAddNoteBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NoteBookServiceImplTest.testAddNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
         <pattern>
@@ -121,13 +119,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
       <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
-      <option name="METHOD_NAME" value="testAddNoteBook" />
+      <option name="METHOD_NAME" value="testAddNote" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoteBookServiceImplTest.testGetAllNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NoteBookServiceImplTest.testDeleteFavorNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
         <pattern>
@@ -137,13 +135,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
       <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
-      <option name="METHOD_NAME" value="testGetAllNotebook" />
+      <option name="METHOD_NAME" value="testDeleteFavorNote" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceImplTest.RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NoteBookServiceImplTest.testFavorNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloudNote" />
       <extension name="coverage">
         <pattern>
@@ -152,8 +150,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
-      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="RegisterTest" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
+      <option name="METHOD_NAME" value="testFavorNote" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteBookServiceImplTest.testGetFavorNotes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloudNote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hrbeu.cloudnote.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hrbeu.cloudnote.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hrbeu.cloudnote.service.NoteBookServiceImplTest" />
+      <option name="METHOD_NAME" value="testGetFavorNotes" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -265,20 +279,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests | #1" />
-      <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
-      <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
-      <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
+      <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNote" />
+      <item itemvalue="JUnit.NoteBookServiceImplTest.testDeleteFavorNote" />
+      <item itemvalue="JUnit.NoteBookServiceImplTest.testFavorNote" />
+      <item itemvalue="JUnit.NoteBookServiceImplTest.testGetFavorNotes" />
       <item itemvalue="JUnit.UserServiceImplTest.test" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.64" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testDeleteFavorNote" />
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testGetFavorNotes" />
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testFavorNote" />
+        <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNote" />
         <item itemvalue="JUnit.UserServiceImplTest.test" />
-        <item itemvalue="JUnit.UserServiceImplTest.RegisterTest" />
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testGetAllNotebook" />
-        <item itemvalue="JUnit.NoteBookServiceImplTest.testAddNoteBook" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
