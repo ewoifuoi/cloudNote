@@ -734,6 +734,7 @@
 					$(this).find("a").addClass("checked");
 					var noteId = $(this).attr("data-id");
 					currentNoteId = noteId;
+
 					getNote(noteId);
 				})
 
@@ -919,6 +920,7 @@
 
 			// 根据笔记id查询笔记标题和内容
 			function  getNote(noteId){
+				show('editor');
 				$.ajax({
 					url:'/cloudNote_war_exploded/getNote/'+noteId,//请求的url
 					type:'get', //请求方式，GET或POST

@@ -2,6 +2,7 @@ package com.hrbeu.cloudnote.controller;
 
 import com.hrbeu.cloudnote.Utils.NoteResult;
 import com.hrbeu.cloudnote.Utils.NoteUtils;
+import com.hrbeu.cloudnote.aspect.Log;
 import com.hrbeu.cloudnote.pojo.Note;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import com.hrbeu.cloudnote.service.NoteBookServiceImpl;
@@ -17,6 +18,7 @@ public class NoteBookController {
     @Autowired
     NoteBookServiceImpl service;
 
+    @Log(value = "获取用户笔记本列表")
     @GetMapping ("/getNotebookByuserid")
     public NoteResult getAllNotebookByuserid(String uid){
 
@@ -25,6 +27,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "新建笔记本")
     @RequestMapping("/addNoteBook")
     public NoteResult addNotebook(String uid,String bookname){
         String bookid = NoteUtils.getUUID();
@@ -40,6 +43,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "获取笔记列表")
     @GetMapping("/getNoteList/{bookid}")
     public NoteResult getNotelist(@PathVariable String bookid){
         List<Note> ln = service.getAllNoteBynotebook(bookid);
@@ -48,6 +52,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "获取笔记内容")
     @GetMapping("/getNote/{noteid}")
     public NoteResult getNote(@PathVariable String noteid){
         System.out.println(noteid);
@@ -57,11 +62,13 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "保存笔记")
     @GetMapping("/save_note")
     public Boolean save_note(String noteId,String note_title,String note_body){
          return service.save_note(noteId, note_title, note_body);
     }
 
+    @Log(value = "新建笔记")
     @PostMapping("/addNote")
     public NoteResult addNote(String notebookid, String noteName, String userid){
         String noteid = NoteUtils.getUUID();
@@ -79,6 +86,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "获取收藏夹列表")
     @PostMapping("/favorNote")
     public NoteResult favorNote(String id){
         service.favorNote(id);
@@ -86,6 +94,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "设置收藏笔记")
     @PostMapping("/getFavorNotes")
     public NoteResult getFavorNotes(String uid){
         System.out.println("控制层id："+uid);
@@ -94,6 +103,7 @@ public class NoteBookController {
         return  result;
     }
 
+    @Log(value = "删除收藏笔记")
     @PostMapping("/deletefavorNote")
     public  NoteResult deleteFavorNote(String id){
         service.deleteFavorNote(id);
@@ -101,6 +111,7 @@ public class NoteBookController {
         return  result;
     }
 
+    @Log(value = "删除笔记")
     @PostMapping("/deleteNote")
     public NoteResult deleteNote(String id) {
         service.deleteNote(id);
@@ -108,6 +119,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "将笔记移入回收站")
     @PostMapping("/recycleNote")
     public NoteResult recycleNote(String id) {
         service.recycleNote(id);
@@ -115,6 +127,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "获取回收站列表")
     @PostMapping("/getRecycledNotes")
     public NoteResult getRecycledNotes(String uid) {
         List<Note> list = service.getRecycledNotes(uid);
@@ -122,6 +135,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "删除笔记本")
     @PostMapping("/deleteNotebook")
     public NoteResult deleteNotebook(String id){
         service.deleteNotebook(id);
@@ -130,6 +144,7 @@ public class NoteBookController {
     }
 
 
+    @Log(value = "移动笔记")
     @PostMapping("/moveNote")
     public NoteResult moveNote(String noteid , String target) {
 
@@ -138,6 +153,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "清空回收站")
     @PostMapping("/clearDustbin")
     public NoteResult clearDustbin(String uid) {
 
@@ -148,6 +164,7 @@ public class NoteBookController {
         return result;
     }
 
+    @Log(value = "获取用户昵称")
     @PostMapping("/getUserName")
     public String getUserName(String uid){
         return service.getUserName(uid);

@@ -2,6 +2,7 @@ package com.hrbeu.cloudnote.controller;
 
 import com.hrbeu.cloudnote.Utils.NoteResult;
 import com.hrbeu.cloudnote.Utils.NoteUtils;
+import com.hrbeu.cloudnote.aspect.Log;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import com.hrbeu.cloudnote.pojo.User;
 import com.hrbeu.cloudnote.service.UserService;
@@ -24,6 +25,8 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    @Log(value = "用户注册")
     @PostMapping("/register")
     public NoteResult Register(String regist_username, String nickname, String regist_password) throws NoSuchAlgorithmException {
 
@@ -43,6 +46,7 @@ public class UserController {
         return "这是一条测试";
     }
 
+    @Log(value = "用户登录")
     @PostMapping("/login")
     public NoteResult login(String regist_username, String regist_password, HttpSession session){
         User u = service.login(regist_username,regist_password);
@@ -55,11 +59,13 @@ public class UserController {
         }
     }
 
+
     @PostMapping("/getPswByuserid")
     public boolean getPswByuserid(String uid, String last_password) throws NoSuchAlgorithmException {
         return service.getPswByuserid(uid, last_password);
     }
 
+    @Log(value = "用户修改密码")
     @PostMapping("/changePwd")
     public boolean changePwd(String uid, String new_password){
         return service.ChangePassword(uid, new_password);
