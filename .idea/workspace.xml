@@ -11,10 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f97d5d0-74d6-4fea-ab43-a0984dc75ad6" name="Changes" comment="修复收藏按钮">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/aspect/IpUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/aspect/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/aspect/LogAscpect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/aspect/SysLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/dao/LogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/ISysLogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrbeu/cloudnote/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +33,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="JUnit3 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -92,6 +99,10 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hrbeu.cloudnote.service" />
+      <recent name="com.hrbeu.cloudnote.aspect" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="junit.framework.TestCase" />
     </key>

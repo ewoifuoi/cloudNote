@@ -2,6 +2,7 @@ package com.hrbeu.cloudnote.controller;
 
 import com.hrbeu.cloudnote.Utils.NoteResult;
 import com.hrbeu.cloudnote.Utils.NoteUtils;
+import com.hrbeu.cloudnote.aspect.Log;
 import com.hrbeu.cloudnote.pojo.Notebook;
 import com.hrbeu.cloudnote.pojo.User;
 import com.hrbeu.cloudnote.service.UserService;
@@ -43,6 +44,7 @@ public class UserController {
         return "这是一条测试";
     }
 
+    @Log(value = "用户登录")
     @PostMapping("/login")
     public NoteResult login(String regist_username, String regist_password, HttpSession session){
         User u = service.login(regist_username,regist_password);
